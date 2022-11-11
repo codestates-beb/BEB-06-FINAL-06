@@ -1,0 +1,22 @@
+.MainPage {
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../icon/001.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 10px;
+}
+.MainPage-btn-Container{
+    margin-top: 700px;
+    align-items: center;
+    justify-content: center;
+}
+.MainPage > span{
+    display: block;
+}
+.MainPage-btn-Container > button{
+    display: block;
+    margin: 20px auto ;
+}

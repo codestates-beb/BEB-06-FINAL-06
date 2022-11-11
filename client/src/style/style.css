@@ -1,0 +1,78 @@
+
+/* 기본 버튼 */
+.btn-Shape{
+    /* 버튼모양 */
+    border-radius: 50px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    /* moz-transition: all 0.4s ease-in-out; */
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    cursor: pointer;
+    
+}
+
+.btn-Shape-accept{
+    /* 버튼모양 */
+    border-radius: 50px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    /* moz-transition: all 0.4s ease-in-out; */
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    background-image: linear-gradient(to right, #3ed639, #21c156, #16b044, #12ac43);
+    box-shadow: 0 4px 15px 0 rgba(126, 242, 132, 0.75);
+    cursor: pointer;
+    
+}
+
+.btn-Shape:hover {
+    background-position: 100% 0;
+    /* moz-transition: all 0.4s ease-in-out; */
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;  
+}
+
+.btn-Shape-accept:hover {
+    background-position: 100% 0;
+    /* moz-transition: all 0.4s ease-in-out; */
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;  
+}
+
+.btn-Size-default{
+    width: 300px;
+    height: 100px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.btn-Size-small{
+    width: 150px;
+    height: 70px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.btn-Size-long{
+    width: 40%;
+    height: 70px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.header-text{
+    font-size: 100px;
+    font-weight: 500;
+    color: white;
+}
