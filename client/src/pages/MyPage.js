@@ -4,7 +4,23 @@ import ItemList from '../components/unlocked-item/ItemList'
 import Item from '../components/unlocked-item/Item'
 import defaultNFT from '../icon/heart.png'
 import bronze from '../icon/bronze.png'
+
+
 const MyPage = () => {
+    // 필요한 user 정보
+    // 키값
+    // 닉네임
+    // 지갑주소
+    // 토큰갯수
+    // unlocked nft 목록 <- 이건 json형태로 받아야할듯?
+    // 나의 최고점수
+    // 랭크 <- 이건 랭크기록 받아와서 처리할수있음 프론트에서도 가능할지도? 
+
+
+
+
+
+
     return (
         <div className='MyPage'>
             <div className='MyPage_Header'>
