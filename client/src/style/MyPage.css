@@ -47,29 +47,6 @@
     width: 80%;
 }
 
-.MyPage_Content-Rank-container{
-    display: flex;
-    float: left;
-    border: 1px solid rgb(255, 255, 255);  
-    border-radius: 20px;
-    width: 90%;
-    /* padding: 10px 150px; */
-    
-}
-
-.Rank-container_Badge{
-    width: 150px;
-    height: 150px;
-}
-
-.Rank-container_Score,
-.Rank-container_Rank{
-    /* margin: 0px 30px; */
-    width: 50%;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
 
 .container-title{
     text-align: center;
@@ -91,7 +68,8 @@
 }
 
 
-.MyPage_Content-Unlocked-container{
+.MyPage_Content-Profile-container,
+.MyPage_Content-NFT-container{
     margin-top: 20px;
     /* display: flex; */
     float: left;
