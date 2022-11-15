@@ -1,16 +1,16 @@
-.item{
+.nftitem{
     position: relative;
     color: white;
     background-color: #1a1c1e;
     border-radius: 20px;
     overflow: hidden;
     width: 200px;
-    height: 350px;
+    height: 200px;
     margin: 20px;
     cursor: pointer;
 }
 
-.item-component {
+.nftitem-component {
     position: relative;
     color: white;
     background-color: #1a1c1e;
@@ -24,7 +24,7 @@
     cursor: pointer;
     opacity: 0.5;
 } */
-.item-component__datails {
+.nftitem-component__datails {
     padding: 20px;
 }
 
@@ -38,7 +38,7 @@
     font-size: 18px;
     font-weight: 600;
 }
-.item-component__image {
+.nftitem-component__image {
     width: 100%;
 }
 .wethImage {
@@ -47,7 +47,7 @@
 }
 
 
-.item-component__price-container {
+.nftitem-component__price-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,7 @@
     font-weight: 600;
 }
 
-.item-hover{
+.nftitem-hover{
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -68,11 +68,17 @@
     cursor: pointer;
     border-radius: 20px;
 }
-
-.item-hover:hover .sell-container{
+/* 아래꺼 적용 시  마우스 올렸을때 해당 div가 올라옴 */
+.nftitem-hover:hover .sell-container{
     opacity: 1;
     height: 100%;
 }
+/* 아래꺼 적용 시 div 위에 div가 적용 되어있음 */
+/* .item-hover .sell-container{
+  opacity: 1;
+  height: 100%;
+} */
+
 .sell-container{
     position: absolute;
     display: flex;
@@ -86,6 +92,7 @@
     opacity: 0;
     transition: 0.5s ease;
 }
+
 .sell-container__btn-size {
     width: 150px;
     height: 80px;
