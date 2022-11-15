@@ -6,7 +6,7 @@ import Pagination from "react-js-pagination";
 import {useState} from "react";
 
 const Itemlist = () => {
-    const itemCount = 6;
+    const itemCount = 3;
     let totalItemCount = dummydata.length // 전체 아이템 갯수
     const [page, setPage] = useState(1); // 현제 페이지를 기억해줌
     const offset = (page - 1) * itemCount; // 10 -1 * 10
@@ -19,8 +19,8 @@ const Itemlist = () => {
         <div className="itemList">
             <div className='itemListItem'>
                 {
-                    dummydata
-                        .slice(offset, offset + itemCount)
+                    dummydata 
+                        // .slice(offset, offset + itemCount)  // 페이지로 구현시 주석 해제
                         .map((punk) => (
                             <div key={punk.id}>
                                 {/* <Item nftdata={dummydata}/> */}
@@ -36,7 +36,7 @@ const Itemlist = () => {
             </div>
             
             {/* 페이지네이션  */}
-            <div className="page">
+            {/* <div className="page">
                 <Pagination className="Pagination" activePage={page}
                     // 현재 페이지
                     itemsCountPerPage={itemCount}
@@ -52,7 +52,7 @@ const Itemlist = () => {
                     onChange={handlePageChange}
                     // 페이지 변경을 핸들링하는 함수
                 />
-            </div>
+            </div> */}
         </div>
     )
 }
