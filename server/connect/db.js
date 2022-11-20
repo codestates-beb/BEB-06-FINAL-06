@@ -24,7 +24,7 @@ connection.query("USE JETRIS", function(err, result){
 })
 
 // users 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists users(user_address varchar(255), user_nickname varchar(255), user_token1amount float, user_token2amount float)", 
+connection.query("CREATE TABLE if not exists users(user_address varchar(255), user_nickname varchar(255), user_token1amount float, user_token2amount float, user_score integer)", 
 function(err, result){
     if(err) return console.log(err);
 })
