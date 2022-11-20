@@ -1,0 +1,49 @@
+.SignupPage{
+    width: 100%;
+    height: 100vh;
+}
+
+.SignupPage_Header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignupPage_Header > button{
+    margin-left: 100px;
+}
+
+.SignupPage_Content{
+    justify-content: center;
+    align-items: center;
+}
+
+.SignupPage_Content > img,
+/* .SignupPage_Content-userinputt > input, */
+.SignupPage_Content > button{
+    display: block;
+    margin: 100px auto ;
+}
+
+.SignupPage_Content > img{
+    width: 40%;
+    height: 60%;
+    border-radius: 25px;
+    border: 10px solid #ffffff;
+}
+
+.SignupPage_Content-userinput > input{
+    width: 30%;
+    height: 60px;
+    margin: auto;
+    font-size: 40px;
+    background-color: rgb(240, 246, 251);
+    border-radius: 25px;
+    margin-left: 10px;
+
+}
+
+.SignupPage_Content-userinput{
+
+
+}

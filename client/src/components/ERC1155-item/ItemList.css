@@ -1,0 +1,22 @@
+.item-component__header{
+    display: grid;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+    border-bottom: 1px solid rgba(255,255,255,0.8); ;
+}
+
+.itemListItem{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+
+}
+::-webkit-scrollbar {
+    display: none;
+  }
