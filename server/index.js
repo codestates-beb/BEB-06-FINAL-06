@@ -18,6 +18,7 @@ app.listen(PORT, function(){
 app.use('/user',require('./routes/user.route'))
 app.use('/item',require('./routes/item.route'))
 app.use('/nft',require('./routes/nft.route'))
+app.use('/game',require('./routes/game.route'))
 
 // 데이터 베이스 선언 
 // const connection = mysql.createConnection({

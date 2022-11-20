@@ -1,4 +1,7 @@
+// 유저 관련된 라우터
+
 const router = require('express').Router();
+
 const {connection} = require('../connect/db.js')   
 const mysql=require("mysql");
 
@@ -12,7 +15,7 @@ const mysql=require("mysql");
 
 // 유저 테이블 모두 받기
 router.get('/findall', function(req, res){
-    connection.query('SELECT * FROM user', function(err, result){
+    connection.query('SELECT * FROM users', function(err, result){
         res.send(result)
     })
 })
@@ -21,24 +24,28 @@ router.get('/findall', function(req, res){
 router.post('/signup', function(req, res){
         const address = req.body.user_address;
         const nickname = req.body.user_nickname;
-        const token1amount = 10;
+        const token1amount = 0;
         const token2amount = 0;
-        console.log(address,nickname)
+        const score = 0;
+        console.log(req.body)
         
-        connection.query(`SELECT * FROM user where user_address = "${address}"`, [address], function(err, result){
+        connection.query(`SELECT * FROM users where user_address = "${address}"`, [address], function(err, result){
             if(err) return console.log(err);
-            console.log(result);
+            console.log( result.length);
             if(result.length){
-                // res.send('계정중복임')
-                res.status(400).json({message: "address is exist"});
+                // res.status(400).json({message: "address is exist"});
+                res.status(400).send("이미 가입된 지갑 주소 입니다.");
             }else{
-                connection.query('INSERT INTO user(user_address, user_nickname, user_token1amount, user_token2amount) VALUES(?, ?,?,?)', [address, nickname, token1amount, token2amount], function(err, result){
+                connection.query('INSERT INTO users(user_address, user_nickname, user_token1amount, user_token2amount, user_score) VALUES(?,?,?,?,?)', [address, nickname, token1amount, token2amount, score], function(err, result){
                     if(err) return console.log(err)
-                    console.log(result)
+                    // console.log(result)
                     res.status(200).json({result: result});
                 })
             }
         })
     })
+
+
+    router.post('/')
     // connection.end();
 module.exports = router;

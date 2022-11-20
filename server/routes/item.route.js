@@ -1,3 +1,5 @@
+// 아이템 관련 라우터
+
 const router = require('express').Router();
 const {connection} = require('../connect/db.js')   
 const mysql=require("mysql");
