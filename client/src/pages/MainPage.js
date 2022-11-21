@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import '../style/MainPage.css'
 import '../style/style.css'
 import {useNavigate} from 'react-router-dom';
-import logo from '../icon/logo.png';
+import logo from '../icon/Logo.png';
 
 const MainPage = () => {
     const [wallet, SetWallet] = useState('지갑연결'); // 지갑주소 저장
