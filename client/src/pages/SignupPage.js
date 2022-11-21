@@ -27,13 +27,13 @@ const SignupPage = () => {
         console.log(walletAddress)
         // 회원가입 버튼 클릭시 지갑주소와 입력받은 닉네임을 서버로 전송해야한다.
 
-        navigator('/')
+        navigator('/MyPage')
     }
     return (
         <div className='SignupPage'>
             {/* 헤더, 지갑연결 버튼  */}
             <div className='SignupPage_Header'>
-                <span className='header-text'>Welcome to JETRIS</span>
+                <span className='header-text'>Welcome to JETRIS !</span>
 
             </div>
             {/* 디폴트 이미지, 닉네임, 회원가입 버튼 부분 */}

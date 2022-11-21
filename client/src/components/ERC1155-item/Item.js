@@ -1,8 +1,11 @@
 import React from 'react'
 import weth from '../../icon/weth.png'
 import './Item.css'
+import { Lock } from '@material-ui/icons';
 const Item = ({id, name, image, price}) => {
-
+    const UseItem = () => {
+        
+    }
     return (
         <div className='item'>
             <div className='item-hover'>
@@ -20,8 +23,9 @@ const Item = ({id, name, image, price}) => {
                         <div className='peice'>{price}</div>
                     </div>
                 </div>
-                <div className='sell-container'>
-                    <button className='sell-container__btn sell-container__btn-size'>구매하기</button>
+                {/* 마우스 올렸을 시 사용 버튼 나오는 부분  div(useItem-container) 안에 작성하시면 됩니다*/}
+                <div className='useItem-container'>
+                <button className='useItem-container__btn useItem-container__btn-size' onClick={UseItem}>사용하기</button>
                 </div>
             </div>
         </div>

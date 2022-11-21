@@ -1,0 +1,185 @@
+.item{
+    position: relative;
+    color: white;
+    background-color: #1a1c1e;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 200px;
+    height: 350px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.item-component {
+    position: relative;
+    color: white;
+    background-color: #1a1c1e;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 300px;
+    height: 500px;
+    margin: 20px;
+}
+/* .item-component:hover {
+    cursor: pointer;
+    opacity: 0.5;
+} */
+.item-component__datails {
+    padding: 20px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.id {
+    color: #a1a5b0;
+    font-size: 18px;
+    font-weight: 600;
+}
+.item-component__image {
+    width: 100%;
+}
+.wethImage {
+    height: 23px;
+    width: 15px;
+}
+
+
+.item-component__price-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    object-fit: contain;
+}
+
+.peice {
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.item-hover{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 20px;
+}
+/* 아래꺼 적용 시  마우스 올렸을때 해당 div가 올라옴 */
+.item-hover:hover .useItem-container{
+    opacity: 1;
+    height: 100%;
+}
+/* 아래꺼 적용 시 div 위에 div가 적용 되어있음 */
+/* .item-hover .sell-container{
+  opacity: 1;
+  height: 100%;
+} */
+
+.useItem-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.useItem-container__btn-size {
+    width: 150px;
+    height: 80px;
+}
+
+.useItem-container__btn{
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    cursor: pointer;
+}
+
+.useItem-container__btn:hover{
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.useItem-container__btn:focus{
+    outline: none;
+}
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul.pagination li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  ul.pagination li:first-child{
+    border-radius: 5px 0 0 5px;
+  }
+
+  ul.pagination li:last-child{
+    border-radius: 0 5px 5px 0;
+  }
+  
+  ul.pagination li a {
+    text-decoration: none;
+    color: #337ab7;
+    font-size: 1rem;
+  }
+  
+  ul.pagination li.active a {
+    color: white;
+  }
+
+  ul.pagination li.active {
+    background-color: #337ab7;
+  }
+  
+  ul.pagination li a:hover,
+  ul.pagination li a.active {
+    color: blue;
+  }
+  
+  .page-selection {
+    width: 48px;
+    height: 30px;
+    color: #337ab7;
+  }

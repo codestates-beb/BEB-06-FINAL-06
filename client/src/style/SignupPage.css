@@ -1,12 +1,21 @@
 .SignupPage{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    overflow: auto;
+    background-image: url('../icon/002.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .SignupPage_Header{
-    display: flex;
+    margin-top: 40px;
     justify-content: center;
     align-items: center;
+}
+
+.header-text{
+    font-size: 80px;
 }
 
 .SignupPage_Header > button{
@@ -22,19 +31,19 @@
 /* .SignupPage_Content-userinputt > input, */
 .SignupPage_Content > button{
     display: block;
-    margin: 100px auto ;
+    margin: 30px auto;
 }
 
 .SignupPage_Content > img{
     width: 40%;
-    height: 60%;
+    height: 20%;
     border-radius: 25px;
     border: 10px solid #ffffff;
 }
 
 .SignupPage_Content-userinput > input{
     width: 30%;
-    height: 60px;
+    height: 50px;
     margin: auto;
     font-size: 40px;
     background-color: rgb(240, 246, 251);
@@ -43,7 +52,11 @@
 
 }
 
-.SignupPage_Content-userinput{
+/* .SignupPage_Content-userinput{
 
 
+} */
+
+.SignupPage_Content > button{
+    margin: 60px auto;
 }
