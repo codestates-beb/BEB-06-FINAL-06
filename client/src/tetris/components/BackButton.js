@@ -1,9 +1,20 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { StyledBackButton } from "./styles/StyledBackButton";
 
-const BackButton = () => (
-    <StyledBackButton style={{marginTop: '30px'}}><Link to={'/mypage'} style={{textDecoration:"none", color:'#fff'}}>Back</Link></StyledBackButton>
-);
+
+
+const BackButton = () => {
+
+    const navigator = useNavigate();
+
+    const MainPageLoad = () => {
+        navigator('/MyPage')
+    }
+
+    return (
+<StyledBackButton style={{marginTop: '30px'}} onClick={MainPageLoad}>Back</StyledBackButton>
+    )
+};
 
 export default BackButton;

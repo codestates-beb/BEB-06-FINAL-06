@@ -88,6 +88,8 @@ const Tetris = ()=> {
             dropPlayer();
         } else if(keyCode === 38){ 
             playerRotate(stage, 1)
+        }else if(keyCode === 32){ // space bar -> when I use space bar, the tetrominos attatched to the bottom of the stage
+            ;
         }
     }
 }
@@ -103,12 +105,15 @@ useInterval(() => {
             <Stage stage={stage}/>
             <aside>
                 {gameOver ? (
+                    <div>
                     <Display gameOver={gameOver} text="Game Over"/>
+                    <Display text={`Score: ${score}`}/>
+                    </div>
                 ) : (
                 <div>
                 <Display text={`Score: ${score}`}/>
                 <Display text={`Rows: ${rows}`}/>
-                <Display text={`Level: ${level}`}/>
+                <Display text={`Speed: ${level}`}/>
                 </div>
                 )}
                 <StartButton callback={startGame} />
