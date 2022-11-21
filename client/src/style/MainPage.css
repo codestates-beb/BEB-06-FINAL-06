@@ -1,22 +1,38 @@
-.MainPage {
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
+.MainPage{
+    background-image: url('../icon/002.png');
+    width: 100%;
     height: 100vh;
-    background-image: url('../icon/001.png');
-    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-    padding-top: 10px;
+    background-repeat: no-repeat;
+    overflow: auto;
 }
 .MainPage-btn-Container{
-    margin-top: 700px;
     align-items: center;
     justify-content: center;
+    margin-top: -5%;
 }
 .MainPage > span{
     display: block;
 }
 .MainPage-btn-Container > button{
     display: block;
-    margin: 20px auto ;
+    margin: 30px auto;
 }
+.Logo-Container{
+    align-items: center;
+    justify-content: center;
+    margin: 150px auto;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.Logo{
+    width: 80%;
+}
+
+@media screen and (max-width: 750px) {
+    .Logo{
+        width: 720px;
+    }
+}
+

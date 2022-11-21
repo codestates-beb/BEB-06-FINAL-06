@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import '../style/MainPage.css'
 import '../style/style.css'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import logo from '../icon/Logo.png';
 
 const MainPage = () => {
     const [wallet, SetWallet] = useState('지갑연결'); // 지갑주소 저장
@@ -27,11 +28,14 @@ const MainPage = () => {
 
     return (
         <div className='MainPage'>
-            <div className='MainPage-btn-Container'>
-                <span>{wallet}</span>
-                <button className='btn-Shape btn-Size-default' onClick={WalletConnection}>로그인</button>
-                <button className='btn-Shape btn-Size-default' onClick={SignupPageLoad}>회원가입</button>
-            </div>
+            <div className='Logo-Container'>
+                <img src={logo} className='Logo' alt='logo'/>
+           </div>
+                <div className='MainPage-btn-Container'>
+                    <span>{wallet}</span>
+                    <button className='btn-Shape btn-Size-default' onClick={WalletConnection}>로그인</button>
+                    <button className='btn-Shape btn-Size-default' onClick={SignupPageLoad}>회원가입</button>
+                </div>
         </div>
     )
 }

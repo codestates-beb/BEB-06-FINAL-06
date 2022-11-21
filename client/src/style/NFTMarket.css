@@ -1,0 +1,60 @@
+.NFTMarket{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../icon/002.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: auto;
+}
+
+.nftContent{
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.TokenCount{
+    width: 100%;
+    height: 200px;
+    float: top;
+}
+
+.nftDummy{
+    float: bottom;
+    width: 100%;
+    height: 1000px;
+}
+
+.Token_Count{
+    width: 100%;
+    height: 50%;
+    border: 4px solid black;
+    border-radius: 25px;
+}
+
+.nft{
+    width: 100%;
+    height: 100%;
+    border: 4px solid black;
+    border-radius: 25px;
+}
+
+@media screen and (max-width: 1800px){
+    .nftDummy{
+        height: 1050px;
+    }
+}
+
+@media screen and (max-width: 1255px){
+    .nftDummy{
+        height: 1050px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .nftDummy{
+        height: 1100px;
+    }
+}
+
