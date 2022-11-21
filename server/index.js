@@ -1,9 +1,8 @@
 const express = require('express');
 const cors = require("cors");
 const dotenv = require("dotenv");
-const mysql = require("mysql");
 const app = express();
-const router = express.Router();
+
 
 dotenv.config();            // env 파일 사용
 app.use(express.json());    // express에서 body에 json을 읽어오기 위해 선언
