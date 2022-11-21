@@ -24,17 +24,18 @@ connection.query("USE JETRIS", function(err, result){
 })
 
 // users 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists users(user_address varchar(255), user_nickname varchar(255), user_token1amount float, user_token2amount float, user_score integer)", 
+connection.query("CREATE TABLE if not exists users(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY ,user_address varchar(255), user_nickname varchar(255), user_token1amount float, user_token2amount float, user_score integer, user_img varchar(500))", 
 function(err, result){
     if(err) return console.log(err);
 })
+
 // items 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists items(onwer varchar(255), metadata_url varchar(255))", 
+connection.query("CREATE TABLE if not exists items(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255))", 
 function(err, result){
     if(err) return console.log(err);
 })
 // nfts 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists nfts(onwer varchar(255), metadata_url varchar(255))", 
+connection.query("CREATE TABLE if not exists nfts(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255))", 
 function(err, result){
     if(err) return console.log(err);
 })
