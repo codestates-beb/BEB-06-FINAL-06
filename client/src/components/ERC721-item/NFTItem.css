@@ -106,7 +106,7 @@
     text-align: center;
     border: none;
     background-size: 300% 100%;
-    moz-transition: all .4s ease-in-out;
+    /* moz-transition: all .4s ease-in-out; */
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
@@ -117,7 +117,7 @@
 
 .sell-container__btn:hover{
     background-position: 100% 0;
-    moz-transition: all .4s ease-in-out;
+    /* moz-transition: all .4s ease-in-out; */
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
@@ -126,8 +126,6 @@
 .sell-container__btn:focus{
     outline: none;
 }
-
-
 
 .pagination {
     display: flex;
