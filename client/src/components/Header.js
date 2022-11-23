@@ -15,6 +15,13 @@ const Header = () => {
             <div className='header__navmenu'>
                 {/* Item Market 버튼 */}
                 <div className='header__navmenu__button'>
+                    <Link to="/community" className='link'>
+                        <span className='header__navmenu__button__icon'>
+                            Community
+                        </span>
+                    </Link>
+                </div>
+                <div className='header__navmenu__button'>
                     <Link to="/itemmarket" className='link'>
                         <span className='header__navmenu__button__icon'>
                             Item 
@@ -54,6 +61,7 @@ const Header = () => {
                         <span></span>
                     </label>
             <ul className="menu__box">
+                 <li><Link to='/community'><a className="menu__item">Community</a></Link></li>
                  <li><Link to='/itemmarket'><a className="menu__item">Item</a></Link></li>
                  <li><Link to='/nftmarket'><a className="menu__item">NFT</a></Link></li>
                  <li><Link to='/mypage'><a className="menu__item">MyPage</a></Link></li>
