@@ -46,7 +46,6 @@ a {
 }
 
 .header__navmenu__button{
-    width: 100px;
     height: 80px;
     font-size: 25px;
     font-weight: 800;
@@ -70,7 +69,9 @@ a {
     display: none;
 }
 
-@media screen and (max-width: 2350px) {
+
+
+@media screen and (max-width: 2900px) {
     .header__navmenu {
         display: none;
     }
