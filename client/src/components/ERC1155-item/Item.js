@@ -1,7 +1,7 @@
 import React from 'react'
 import weth from '../../icon/weth.png'
 import './Item.css'
-import { Lock } from '@material-ui/icons';
+
 const Item = ({id, name, image, price}) => {
     const UseItem = () => {
         

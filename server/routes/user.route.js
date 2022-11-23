@@ -47,5 +47,10 @@ router.post('/signup', function(req, res){
     })
 
 
+    // 유저 로그인
+    router.post('/login',function(req,res){
+        // 디비를 찾아서 해당 지갑 주소가 있으면 토큰생성하여 전달
+    })
+
     // connection.end();
 module.exports = router;

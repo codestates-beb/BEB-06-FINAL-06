@@ -1,0 +1,82 @@
+.ItemMarket{
+    width: 100%;
+    height: 100%;
+    background-image: url('../icon/002.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: auto;
+}
+
+
+.item_Content{
+    width: 100%;
+    text-align: center;
+}
+
+.randomImg{
+    width: 50%;
+    height: 800px;
+    float: left;
+    text-align: center;
+}
+
+.itemInfo{
+    width: 50%;
+    height: 800px;
+    float: right;
+}
+
+.imgCollect{
+    clear: both;
+    float: bottom;
+    width: 100%;
+    height: 570px;
+}
+
+.randomImgBox{
+    margin: 70px 20px 0 20px;
+    border: 4px solid black;
+    border-radius: 25px;
+    height: 80%;
+}
+
+.token1Count{
+    margin: 70px 20px 0 20px;
+    border-radius: 25px;
+    border: 4px solid black;
+    height: 10%;
+}
+
+.transactionButton{
+    margin: 70px 20px 0 20px;
+    border-radius: 25px;
+    height: 10%;
+}
+
+.transactionButton > button{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.marketDescription{
+    margin: 70px 20px 0 20px;
+    border-radius: 25px;
+    border: 4px solid black;
+    height: 40%;
+}
+
+@media screen and (max-width: 1600px){
+    .item_Content{
+        display: grid;
+    }
+
+    .randomImg{
+    width: 100%;
+    }
+
+    .itemInfo{
+    width: 100%;
+    }
+}

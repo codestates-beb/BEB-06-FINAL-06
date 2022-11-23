@@ -1,26 +1,31 @@
 .MyPage {
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
     background-image: url('../icon/002.png');
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding-top: 10px;
-
-        width: min(100% -15px, 840px);
-        margin-inline: auto;
+    width: min(100% -15px, 840px);
+    margin-inline: auto;
+    background-color: #1C2458;
+    overflow: auto;
 }
+
 .MyPage_Content {
     display: flex;
 }
 
 .MyPage_Content-left {
-    margin-top: 50px;
     width: 50%;
+    float: left;
+    height: 100%;
 }
 
 .MyPage_Content-right {
-    margin-top: 50px;
     width: 50%;
+    float: right;
+    height: 100%;
 }
 
 .MyPage_Content-setImg{
@@ -29,9 +34,11 @@
     border: 1px solid rgb(255, 255, 255);
     border-radius: 25px;
 }
+
 .MyPage_Content-UserInfo{
     justify-content: center;
 }
+
 .MyPage_Content-UserInfo > span{
     color: white;
     width: 80%;
@@ -47,7 +54,6 @@
     width: 80%;
 }
 
-
 .container-title{
     text-align: center;
     color: white;
@@ -59,7 +65,7 @@
 
 .container-content{
     background-color: bisque;
-    /* width: 100px; */
+    width: 100px;
     padding : 30px 30%;
     
     border-radius: 25px;
@@ -67,14 +73,59 @@
     font-weight: 800;
 }
 
-
 .MyPage_Content-Profile-container,
 .MyPage_Content-NFT-container{
     margin-top: 20px;
-    /* display: flex; */
+    display: flex;
     float: left;
     justify-content: center;
     border: 1px solid rgb(255, 255, 255);  
     border-radius: 20px;
     width: 90%;
+}
+
+@media screen and (max-width: 2110px) {
+    .MyPage{
+        overflow: auto;
+    }
+
+    .MyPage_Content {
+        display: grid;
+    }
+    
+    .MyPage_Content-left {
+        width: 100%;
+        margin-bottom: -40px;
+
+    }
+
+    .MyPage_Content-right {
+        width: 100%;
+        padding:5%;
+        padding-bottom: 0;
+    }
+
+    .MyPage_Content-NFT-container{
+        margin-top: 70px;
+    }
+    
+}
+
+@media screen and (max-width: 960px) {
+    .MyPage_Content-left {
+        padding-left: 2%;
+
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .MyPage_Content-left {
+        padding-left: 0.1%;
+
+    }
+}
+
+.MyPage_Header{
+    margin-top: 0.5%;
+    margin-bottom: 2%;
 }
