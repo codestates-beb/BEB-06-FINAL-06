@@ -14,16 +14,17 @@ const connection = mysql.createConnection({
 
 connection.connect();   // DB 접속
 
-// JETRIS 라는 DATABASE 생성 : CREATE DATABASE if not exists <DATABASE NAME>
-connection.query("CREATE DATABASE if not exists JETRI_DB", function(err, result){
-    if(err) return console.log(err);
-    // console.log(result);
-    console.log('JETRIS DB 접속');
+// JETRIS_DB 라는 DATABASE 생성 : CREATE DATABASE if not exists <DATABASE NAME>
+// connection.query("CREATE DATABASE if not exists JETRIS_DB", function(err, result){
+//     if(err) return console.log(err);
+//     // console.log(result);
+//     console.log('JETRIS DB 접속');
 
-})
-// JETRIS 라는 DATABASE 선택 : USE <DATABASE NAME>
+// })
+// JETRIS_DB 라는 DATABASE 선택 : USE <DATABASE NAME>
 connection.query("USE JETRIS_DB", function(err, result){
     if(err) return console.log(err);
+    console.log('JETRIS DB 접속');
 })
 
 // users 라는 테이블 생성 
