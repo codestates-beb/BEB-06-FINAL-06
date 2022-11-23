@@ -3,24 +3,28 @@ const mysql=require("mysql");
 
 // 데이터 베이스 선언 
 const connection = mysql.createConnection({
-    host : 'localhost',
+    host : process.env.DATABASE_HOST,
     port : '3306',
     user : process.env.DATABASE_USERNAME,
-    password : process.env.DATABASE_PASSWORD
+    password : process.env.DATABASE_PASSWORD,
+    database : process.env.DATABASE
+    
 });
+
 
 connection.connect();   // DB 접속
 
-// JETRIS 라는 DATABASE 생성 : CREATE DATABASE if not exists <DATABASE NAME>
-connection.query("CREATE DATABASE if not exists JETRIS", function(err, result){
-    if(err) return console.log(err);
-    // console.log(result);
-    console.log('JETRIS DB 접속');
+// JETRIS_DB 라는 DATABASE 생성 : CREATE DATABASE if not exists <DATABASE NAME>
+// connection.query("CREATE DATABASE if not exists JETRIS_DB", function(err, result){
+//     if(err) return console.log(err);
+//     // console.log(result);
+//     console.log('JETRIS DB 접속');
 
-})
-// JETRIS 라는 DATABASE 선택 : USE <DATABASE NAME>
-connection.query("USE JETRIS", function(err, result){
+// })
+// JETRIS_DB 라는 DATABASE 선택 : USE <DATABASE NAME>
+connection.query("USE JETRIS_DB", function(err, result){
     if(err) return console.log(err);
+    console.log('JETRIS DB 접속');
 })
 
 // users 라는 테이블 생성 
