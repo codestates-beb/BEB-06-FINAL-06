@@ -5,6 +5,7 @@ import GamePage from './pages/GamePage';
 import SignupPage from './pages/SignupPage';
 import ItemMarket from './pages/ItemMarket';
 import NFTMarket from './pages/NFTMarket';
+import Community from './pages/Community';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                     <Route path='/SignupPage' element={<SignupPage />}/>
                     <Route path='/nftmarket' element={<NFTMarket/>}/>
                     <Route path='/itemmarket' element={<ItemMarket/>}/>
+                    <Route path='/community' element={<Community/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
