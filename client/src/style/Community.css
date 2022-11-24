@@ -11,19 +11,18 @@
     margin-top: 6px;
     height: 90%;
     width: 100%;
-    border: 4px solid black;
     text-align: center;
 }
 .Banner{
     height: 30%;
     width: 100%;
-    border: 4px solid white;
     text-align: center;
+    margin-top: -30px;
 }
 .banner{
     height: 100%;
     width: 100%;
-    /* background-color: pink; */
+    padding-top: 1.5%;
     text-align: center;
 }
 .Categories{
@@ -34,18 +33,111 @@
 .Categorites_content{
     height: 100%;
     width: 100%;
-    border: 4px solid white;
-    /* background-color:bisque; */
+}
+.CategoriesList{
+  margin-left: 12%;
+}
+.list{
+    font-size: 40px;
+    color: white;
+    padding-bottom: 50%;
+    font-weight: 600;
 }
 .Posts{
     float: right;
     height: 65%;
-    width: 90%;
+    width: 85%;
+    margin-right: 14px;
+    border-radius: 20px;
+    background-color: white;
 }
-.post{
-    height: 100%;
-    width: 100%;
-    border: 4px solid white;
-    align-items: center;
-    /* background-color: blueviolet; */
+.hamburgerMenu{
+  display: none;
+}
+
+@media screen and (max-width: 1810px) {
+  .CategoriesList {
+      display: none;
+  }
+
+  .hamburgerMenu{
+      display: flex;
+  }
+  #menuToggle {
+      opacity: 0;
+    }
+    #menuToggle:checked + .menuBtn > span {
+      transform: rotate(45deg);
+    }
+    #menuToggle:checked + .menuBtn > span::before {
+      top: 0;
+      transform: rotate(0deg);
+    }
+
+    #menuToggle:checked + .menuBtn > span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    #menuToggle:checked ~ .menuBox {
+      left: 0 !important;
+    }
+    .menuBtn {
+      position: absolute;
+      top: 32%;
+      margin-top: 35px;
+      left: 4.5%;
+      width: 40px;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .menuBtn > span,
+    .menuBtn > span::before,
+    .menuBtn > span::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      transition-duration: .25s;
+    }
+
+    .menuBtn > span::before {
+      content: '';
+      top: -8px;
+    }
+    .menuBtn > span::after {
+      content: '';
+      top: 8px;
+    }
+
+    .menuBox {
+      display: block;
+      position: fixed;
+      top: 32.5%;
+      right: 100%;
+      width: 300px;
+      height: 51.5%;
+      margin: 0;
+      align-items: center;
+      padding: 80px 0;
+      list-style: none;
+      background-color: #242d6d;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+      transition-duration: .25s;
+      z-index: 1;
+    }
+    .menuItem {
+      display: block;
+      margin-top: 1%;
+      padding: 20px 24px;
+      color: white;
+      font-size: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition-duration: .25s;
+      height: 10%;
+    }
+    .menuItem:hover {
+      background-color: #333a7d;
+    }
 }
