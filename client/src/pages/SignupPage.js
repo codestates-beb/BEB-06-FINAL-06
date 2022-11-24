@@ -56,13 +56,13 @@ const SignupPage = () => {
             .then(function (response) {
                 console.log("성공")
                 console.log(response.data)
-                // console.log(walletAddress)
+                navigator('/MyPage')
             })
             .catch((Error) => {
                 console.log("실패")
                 console.log(Error)
             })
-            navigator('/MyPage')
+
     }
 
     return (
