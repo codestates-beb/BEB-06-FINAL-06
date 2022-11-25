@@ -11,29 +11,75 @@ import {injected} from '../connectors/connectors';
 const MainPage = () => {
     const navigator = useNavigate(); // 회원가입 버튼 클릭시 회원가입 페이지 이동하기위해 선언
     const {account, library, active, activate, deactivate} = useWeb3React();
-    const {setCookiesHandler} =useContext(UseContext);
+    
+    const [isLogin, setIsLogin] = useState(false);
+    const [user, setUser] = useState({});
+    
+    // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
+    useEffect(() => {
+        axios.get("http://localhost:8000/user/success",
+            {withCredentials : true})
+            .then(function (response) {
+                console.log("여기들어옴")
+                console.log(response.data)
+                if(response.data){
+                    setIsLogin(true)
+                    setUser(response.data)
+                }
+            })
+            .catch((Error) => {
+                console.log(Error.response.data)
+            })
+        },[])
+    
     // 지갑 연결 상태(active)가 변경될경우 useEffect 실행 
     useEffect(() => {
+        console.log(active)
         axios
         .post("http://localhost:8000/user/login", {
-            user_address: account
-        })
+            user_address: account,
+        },{withCredentials : true})
         .then(function (response) {
-            setCookiesHandler(true);    
             console.log(response)
-            console.log(document.cookie)
-
+            setIsLogin(true)
+            console.log(isLogin)
+            // navigator('/mypage')
         })
         .catch((Error) => {
             console.log(Error.response.data)
         })
     },[active])
-    useEffect(()=>{
-        console.log("연결상태 : "+active)
-    })
 
-    // 로그인 버튼 클릭시 동작
-    const Login = async() => {
+   
+    
+    // 엑세스 토큰 갱신용
+    const accessToken = () => {
+        axios.get("http://localhost:8000/user/accessToken",
+        {withCredentials : true})
+        .then(function (response) {
+            console.log(response.data[0])
+
+        })
+        .catch((Error) => {
+            console.log(Error.response.data)
+        })
+    }
+    // 리프레시 토큰 갱신
+    const refreshToken = () => {
+        axios.get("http://localhost:8000/user/refreshToken",
+        {withCredentials : true})
+        .then(function (response) {
+            console.log(response.data)
+
+        })
+        .catch((Error) => {
+            console.log(Error.response.data)
+        })
+    }
+
+
+     // 로그인 버튼 클릭시 동작
+     const Login = async() => {
         console.log("로그인 버튼 클릭")
         console.log(active)
         // 지갑연결 수행
@@ -42,17 +88,13 @@ const MainPage = () => {
                  // activate(injected) 로 메타마스크 연결함 크롬 익스텐션 없을 경우 오류 핸들링
                  if ('/No Ethereum provider was found on window.ethereum/') 
                      throw new Error('Metamask 익스텐션을 설치해주세요');
-                 }
+
+                }
              );
          } catch (err) {
              alert(err);
              window.open('https://metamask.io/download.html');
          }
-        
-        // 로그인 버튼 클릭 시 서버와 통신 완료 후 마이페이지 이동
-        // 내 지갑주소를 가져와서 서버에 비교작업 요청
-        // 내 지갑주소가 있는걸로 판별되고 회신오면 디비에있는 내정보를 가져온다음 전역으로 선언 하여 스토리지에 저장
-
         // navigator('/MyPage')
     }
 
@@ -62,6 +104,37 @@ const MainPage = () => {
         console.log("회원가입 버튼 클릭")
         navigator('/SignupPage')
     }
+    // 게임페이지 클릭
+    const GamePageLoad = () => {
+        console.log("게임시작 버튼 클릭")
+        navigator('/Mypage')
+    }
+    // 커뮤니티 페이지 클릭
+    const CommunityPageLoad = () => {
+        console.log("커뮤니티 버튼 클릭")
+        navigator('/community')
+    }
+
+
+    // 로그아웃 버튼 클릭
+    const Logout = () => {
+        // 쿠키삭제, 지갑 접속 종료
+        // 지갑 연결 해제
+        if(active){
+            deactivate()
+            setIsLogin(false)
+            console.log(isLogin)
+        }
+        axios.get("http://localhost:8000/user/logout",
+        {withCredentials : true})
+        .then(function (response) {
+            console.log(response.data)
+        })
+        .catch((Error) => {
+            console.log(Error.response.data)
+        })
+    }    
+
 
     return (
         <div className='MainPage'>
@@ -70,8 +143,19 @@ const MainPage = () => {
            </div>
                 <div className='MainPage-btn-Container'>
                     <span>{account}</span>
-                    <button className='btn-Shape btn-Size-default' onClick={Login}>로그인</button>
-                    <button className='btn-Shape btn-Size-default' onClick={SignupPageLoad}>회원가입</button>
+                   {isLogin ? (<> <sapn> 로그인 상태</sapn></>):<sapn> 로그아웃 상태</sapn>}
+                    {isLogin ? 
+                    <>
+                        <button className='btn-Shape btn-Size-default' onClick={GamePageLoad}>게임 시작</button>
+                        <button className='btn-Shape btn-Size-default' onClick={CommunityPageLoad}>커뮤니티</button>
+                        <button className='btn-Shape btn-Size-default' onClick={Logout}>로그아웃</button>
+                    </>
+                    : <>
+                        <button className='btn-Shape btn-Size-default' onClick={Login}>로그인</button>
+                        <button className='btn-Shape btn-Size-default' onClick={SignupPageLoad}>회원가입</button>
+                    </>}            
+                    {/* <button className='btn-Shape btn-Size-default' onClick={accessToken}>accessToken</button>
+                    <button className='btn-Shape btn-Size-default' onClick={refreshToken}>refreshToken</button> */}
                 </div>
      
         </div>
