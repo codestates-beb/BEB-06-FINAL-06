@@ -6,43 +6,57 @@ import logo from '../icon/logo.png';
 import axios from 'axios';
 import {useWeb3React} from '@web3-react/core';
 import {injected} from '../connectors/connectors';
-
+import { UserContext } from '../User/UserContext';
 
 const MainPage = () => {
     const navigator = useNavigate(); // 회원가입 버튼 클릭시 회원가입 페이지 이동하기위해 선언
     const {account, library, active, activate, deactivate} = useWeb3React();
-    
-    const [isLogin, setIsLogin] = useState(false);
-    const [user, setUser] = useState({});
-    
+    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+
+ 
     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
     useEffect(() => {
         axios.get("http://localhost:8000/user/success",
             {withCredentials : true})
             .then(function (response) {
-                console.log("여기들어옴")
-                console.log(response.data)
-                if(response.data){
-                    setIsLogin(true)
-                    setUser(response.data)
-                }
+                console.log("MainPage success")
+                // console.log(response.data[0])
+                setIsLogin(true)    // 로그인 상태 유지
+                // 유저정보를 갱신함
+                setUser({
+                    id: response.data[0].id,
+                    user_address: response.data[0].user_address,
+                    user_nickname: response.data[0].user_nickname,
+                    user_token1amount: response.data[0].user_token1amount,
+                    user_token2amount: response.data[0].user_token2amount,
+                    user_score: response.data[0].user_score,
+                    user_img: response.data[0].user_img,
+                })
             })
             .catch((Error) => {
-                console.log(Error.response.data)
+                console.log(Error)
             })
         },[])
     
     // 지갑 연결 상태(active)가 변경될경우 useEffect 실행 
     useEffect(() => {
-        console.log(active)
         axios
         .post("http://localhost:8000/user/login", {
             user_address: account,
         },{withCredentials : true})
         .then(function (response) {
+            console.log('MainPage login')
             console.log(response)
             setIsLogin(true)
-            console.log(isLogin)
+            setUser({
+                id: response.data.id,
+                user_address: response.data.user_address,
+                user_nickname: response.data.user_nickname,
+                user_token1amount: response.data.user_token1amount,
+                user_token2amount: response.data.user_token2amount,
+                user_score: response.data.user_score,
+                user_img: response.data.user_img,
+            })
             // navigator('/mypage')
         })
         .catch((Error) => {
@@ -81,7 +95,8 @@ const MainPage = () => {
      // 로그인 버튼 클릭시 동작
      const Login = async() => {
         console.log("로그인 버튼 클릭")
-        console.log(active)
+         console.log(active)
+
         // 지갑연결 수행
          try {
             await activate((injected), (error) => {
@@ -135,6 +150,11 @@ const MainPage = () => {
         })
     }    
 
+    const test = () => {
+        console.log(user)
+        console.log('isLogin :' + isLogin)
+        console.log('account : ' + account)
+    }
 
     return (
         <div className='MainPage'>
@@ -143,12 +163,13 @@ const MainPage = () => {
            </div>
                 <div className='MainPage-btn-Container'>
                     <span>{account}</span>
-                   {isLogin ? (<> <sapn> 로그인 상태</sapn></>):<sapn> 로그아웃 상태</sapn>}
+                   {isLogin ? (<> <span> 로그인 상태</span></>):<span> 로그아웃 상태</span>}
                     {isLogin ? 
                     <>
                         <button className='btn-Shape btn-Size-default' onClick={GamePageLoad}>게임 시작</button>
                         <button className='btn-Shape btn-Size-default' onClick={CommunityPageLoad}>커뮤니티</button>
                         <button className='btn-Shape btn-Size-default' onClick={Logout}>로그아웃</button>
+                        
                     </>
                     : <>
                         <button className='btn-Shape btn-Size-default' onClick={Login}>로그인</button>
@@ -156,6 +177,7 @@ const MainPage = () => {
                     </>}            
                     {/* <button className='btn-Shape btn-Size-default' onClick={accessToken}>accessToken</button>
                     <button className='btn-Shape btn-Size-default' onClick={refreshToken}>refreshToken</button> */}
+                    <button className='btn-Shape btn-Size-default' onClick={test}>테스트 버튼</button> 
                 </div>
      
         </div>

@@ -110,7 +110,8 @@ router.post('/login', function (req, res) {
 
                         res
                             .status(200)
-                            .send("로그인 요청 성공");
+                            .send(payload);
+
 
                     }
                 )
@@ -215,6 +216,7 @@ router.get('/success' , function (req, res) {
             }
         )
     }catch(err){
+        console.log(err)
         res.status(500).send(err)
     }
 

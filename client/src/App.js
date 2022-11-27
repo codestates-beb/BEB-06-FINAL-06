@@ -7,11 +7,27 @@ import ItemMarket from './pages/ItemMarket';
 import NFTMarket from './pages/NFTMarket';
 import Community from './pages/Community';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { useState } from 'react';
+import { UserContext } from './User/UserContext';
+
 
 function App() {
+    const [user, setUser] = useState({
+        id: "",
+        user_address: "",
+        user_nickname: "",
+        user_token1amount: "",
+        user_token2amount: "",
+        user_score: "",
+        user_img: "",
+    });
+    const [isLogin, setIsLogin] = useState(false);
+
+
     return (
         <div className="App">
             <BrowserRouter>
+            <UserContext.Provider value={{user, setUser, isLogin, setIsLogin}}>
                 <Routes>
                     <Route path='/' element={<MainPage />}/>
                     <Route path='/MyPage' element={<MyPage />}/>
@@ -21,6 +37,8 @@ function App() {
                     <Route path='/itemmarket' element={<ItemMarket/>}/>
                     <Route path='/community' element={<Community/>}/>
                 </Routes>
+
+                </UserContext.Provider>
             </BrowserRouter>
         </div>
     );
