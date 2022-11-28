@@ -90,8 +90,16 @@
     font-weight: 800;
 }
 
+.btn-Size-verysmall{
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
 .header-text{
     font-size: 100px;
     font-weight: 500;
     color: white;
 }
+

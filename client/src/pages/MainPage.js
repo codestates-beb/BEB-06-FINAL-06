@@ -24,13 +24,13 @@ const MainPage = () => {
                 setIsLogin(true)    // 로그인 상태 유지
                 // 유저정보를 갱신함
                 setUser({
-                    id: response.data[0].id,
-                    user_address: response.data[0].user_address,
-                    user_nickname: response.data[0].user_nickname,
-                    user_token1amount: response.data[0].user_token1amount,
-                    user_token2amount: response.data[0].user_token2amount,
-                    user_score: response.data[0].user_score,
-                    user_img: response.data[0].user_img,
+                    id: response.data.id,
+                    user_address: response.data.user_address,
+                    user_nickname: response.data.user_nickname,
+                    user_token1amount: response.data.user_token1amount,
+                    user_token2amount: response.data.user_token2amount,
+                    user_score: response.data.user_score,
+                    user_img: response.data.user_img,
                 })
             })
             .catch((Error) => {
