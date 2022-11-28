@@ -43,6 +43,18 @@ connection.query("CREATE TABLE if not exists nfts(id int(100) NOT NULL AUTO_INCR
 function(err, result){
     if(err) return console.log(err);
 })
+// posts 라는 테이블 생성 
+connection.query("CREATE TABLE if not exists posts(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY, user_address varchar(255), user_nickname varchar(255), user_img varchar(500), post_content varchar(1000), post_image varchar(500), post_date DATE, post_categorie varchar(255))", 
+function(err, result){
+    if(err) return console.log(err);
+})
+// comments 라는 테이블 생성 
+connection.query("CREATE TABLE if not exists comments(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY, post_id int(100), user_address varchar(255), user_nickname varchar(255), user_img varchar(500), comment_content varchar(1000), comment_date DATE)", 
+function(err, result){
+    if(err) return console.log(err);
+})
+
+
 
 
 // connection.end();   // DB 종료
