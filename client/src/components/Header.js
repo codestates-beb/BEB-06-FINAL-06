@@ -1,8 +1,44 @@
-import React from 'react'
+import React, {useEffect, useState , useContext} from 'react'
 import './Header.css'
 import {Link} from 'react-router-dom';
 import logo from '../icon/logo.png'
+import {useWeb3React} from '@web3-react/core';
+import { UserContext } from '../User/UserContext';
+import axios from 'axios';
+
 const Header = () => {
+    const {account, library, active, activate, deactivate} = useWeb3React();
+    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+
+
+    // 로그아웃 버튼 클릭
+    const Logout = () => {
+        // 쿠키삭제, 지갑 접속 종료
+        // 지갑 연결 해제
+    
+            deactivate()
+            setIsLogin(false)
+            setUser({        
+                id: "",
+                user_address: "",
+                user_nickname: "",
+                user_token1amount: "",
+                user_token2amount: "",
+                user_score: "",
+                user_img: "",
+            });
+            console.log(isLogin)
+        
+        axios.get("http://localhost:8000/user/logout",
+        {withCredentials : true})
+        .then(function (response) {
+            console.log(response.data)
+            console.log("로그아웃!")
+        })
+        .catch((Error) => {
+            console.log(Error.response.data)
+        })
+    }    
     return (
         <div className='header'>
             {/* 로고 */}
@@ -45,12 +81,12 @@ const Header = () => {
                     </Link>
                 </div>
                 {/* LogOut 버튼 */}
-                <div className='header__navmenu__button'>
-                    <Link to="/" className='link'>
+                <div className='header__navmenu__button' onClick={Logout}>
+                    {/* <Link to="/" className='link'> */}
                         <span className='header__navmenu__button__icon' style={{fontSize: '27px'}}>
                             LogOut
                         </span>
-                    </Link>
+                    {/* </Link> */}
                 </div>
         </div>
                 {/* 햄버거 메뉴 */}
@@ -65,7 +101,11 @@ const Header = () => {
                  <li><Link to='/itemmarket'><a className="menu__item">Item</a></Link></li>
                  <li><Link to='/nftmarket'><a className="menu__item">NFT</a></Link></li>
                  <li><Link to='/mypage'><a className="menu__item">MyPage</a></Link></li>
-                 <li><Link to='/'><a className="menu__item">LogOut</a></Link></li>
+                 <li>
+                    {/* <Link to='/'> */}
+                        <a className="menu__item" onClick={Logout}>LogOut</a>
+                        {/* </Link> */}
+                        </li>
              </ul>
              </div>
         </div>
