@@ -202,16 +202,60 @@ router.get('/refreshToken', function (req, res) {
     }
 })
 // 유저 로그인 상태 확인
+// router.get('/success' , function (req, res) {
+//     try{
+//         const token = req.cookies.accessToken;
+//         const data = jwt.verify(token, process.env.ACCESS_SECRET); // Jwt 토큰을 암호화 해독함
+//         const user_address = data.user_address; // 쿠키에 있는 유저 주소
+//         connection.query(
+//             `SELECT * FROM users where user_address = "${user_address}"`,
+//             function (err, result) {
+//                 if (result[0].user_address === data.user_address) {
+//                     res.status(200).send(result) // result 는 데이터베이스에서 나온 유저 정보
+//                 }
+//             }
+//         )
+//     }catch(err){
+//         console.log(err)
+//         res.status(500).send(err)
+//     }
+
+// })
+
+// 리프래시 토큰으로 로그인 상태 유지 
 router.get('/success' , function (req, res) {
     try{
-        const token = req.cookies.accessToken;
-        const data = jwt.verify(token, process.env.ACCESS_SECRET); // Jwt 토큰을 암호화 해독함
+        const token = req.cookies.refreshToken;
+        const data = jwt.verify(token, process.env.REFRECH_SECRET); // Jwt 토큰을 암호화 해독함
         const user_address = data.user_address; // 쿠키에 있는 유저 주소
         connection.query(
             `SELECT * FROM users where user_address = "${user_address}"`,
             function (err, result) {
                 if (result[0].user_address === data.user_address) {
-                    res.status(200).send(result) // result 는 데이터베이스에서 나온 유저 정보
+                    // access token 재발급
+                    const payload = {
+                        id: result[0].id,
+                        user_address: result[0].user_address,
+                        user_nickname: result[0].user_nickname,
+                        user_token1amount: result[0].user_token1amount,
+                        user_token2amount: result[0].user_token2amount,
+                        user_score: result[0].user_score,
+                        user_img: result[0].user_img
+                    }
+                    const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, {
+                        expiresIn: '1m',
+                        issuer: 'About tech'
+                    });
+                    res.cookie('accessToken', accessToken, {
+                        secure: false,
+                        httpOnly: true
+                    });
+                    // res
+                    //     .status(200)
+                    //     .send("accessToken이 재발급 되었습니다")
+                    
+                    res.status(200).send(payload) // result 는 데이터베이스에서 나온 유저 정보
+                    // console.log(payload)
                 }
             }
         )

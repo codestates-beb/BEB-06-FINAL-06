@@ -19,6 +19,7 @@ app.use('/user',require('./routes/user.route')) // 유저
 app.use('/item',require('./routes/item.route')) // 아이템
 app.use('/nft',require('./routes/nft.route'))   // nft
 app.use('/game',require('./routes/game.route')) // 게임
+app.use('/post',require('./routes/post.route')) // 게시글
 
 
 // 정원님 코드 참고용으로 안지웠습니다. 
