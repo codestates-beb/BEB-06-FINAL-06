@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import Header from '../components/Header'
 import '../style/ItemMarket.css'
 import NFTItemlist from '../components/ERC721-item/NFTItemList'
+import Itemlist from '../components/ERC1155-item/ItemList'
 import Box from '../icon/Box.png'
 import axios from 'axios'
 import {UserContext} from '../User/UserContext'
@@ -54,7 +55,7 @@ const ItemMarket = () => {
                 </div>
             </div>
             <div className='imgCollect'>
-                <div className='NFTs'><NFTItemlist/></div>
+                <div className='NFTs'><Itemlist/></div>
             </div>
         </div>
   </div>

@@ -61,7 +61,7 @@ const MyPage = () => {
                 <div className='MyPage_Content-left'>
                     <img
                         className='MyPage_Content-setImg'
-                        src='https://i.seadn.io/gae/Pjpj2wMnEqpFMTJXQatS8rcrYAHsAGLQ7WdNXAmvbtXdye8HGC7N1dOb9pHmmvlOtof2QVM5iJ70GIiCgBcL6e-UESMFzwas7U4O?auto=format&w=384'/>
+                        src={user.user_img}/>
                     <div className='MyPage_Content-UserInfo'>
                         <span>닉네임 : {user.user_nickname}</span>
                         <span>ERC-20 Token1 : {user.user_token1amount}개</span>

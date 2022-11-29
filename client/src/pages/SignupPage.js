@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {useState} from 'react'
 import '../style/SignupPage.css'
-
+import default_img from '../icon/Default_Img.png'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import Web3 from 'web3';
@@ -10,8 +10,6 @@ import {useWeb3React} from '@web3-react/core';
 import {injected} from '../connectors/connectors';
 
 const SignupPage = () => {
-    const [web, setWeb3] = useState();
-    const [isWallet, isSetWallet] = useState(false)
     const [nickname, setNickname] = useState('') // 닉네임
     const [walletAccept, setWalletAccept] = useState('지갑연결') //?
     const navigator = useNavigate(); // 회원가입 완료 시 메인페이지(로그인) 이동하기 위해 선언
@@ -51,7 +49,8 @@ const SignupPage = () => {
             .post("http://localhost:8000/user/signup", {
                 // axios.get("http://localhost:8000/user/findall",{
                 user_nickname: nickname,
-                user_address: account
+                user_address: account,
+                user_img: default_img,
             })
             .then(function (response) {
                 console.log("성공")
@@ -64,7 +63,11 @@ const SignupPage = () => {
             })
 
     }
-
+    const test = () => {
+        console.log(default_img)
+        console.log(account)
+        console.log(active)
+    }
     return (
         <div className='SignupPage'>
             {/* 헤더, 지갑연결 버튼  */}
@@ -75,7 +78,7 @@ const SignupPage = () => {
             {/* 디폴트 이미지, 닉네임, 회원가입 버튼 부분 */}
             <div className='SignupPage_Content'>
                 <img
-                    src='https://i.seadn.io/gae/Pjpj2wMnEqpFMTJXQatS8rcrYAHsAGLQ7WdNXAmvbtXdye8HGC7N1dOb9pHmmvlOtof2QVM5iJ70GIiCgBcL6e-UESMFzwas7U4O?auto=format&w=384'></img>
+                    src={default_img}></img>
                 <div className='SignupPage_Content-userinput'>
                     {/* 지갑연결이 된다면 버튼CSS를 변경 */}
                     <button
@@ -96,6 +99,7 @@ const SignupPage = () => {
                     disabled={!(account && nickname)}>
                     회원가입
                 </button>
+                <button onClick={test}>테스트</button>
             </div>
         </div>
     )
