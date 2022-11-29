@@ -21,6 +21,11 @@
     text-align: center;
 }
 
+.randomImgBox > img{
+    width: 100%;
+    height: 120%;
+}
+
 .itemInfo{
     width: 50%;
     height: 800px;
@@ -33,10 +38,16 @@
     width: 100%;
     height: 570px;
 }
+.NFTs{
+    width: 80%;
+    height: 90%;
+    margin-left: 15%;
+    margin-right: 2%;
+    margin-top: 1%;
+}
 
 .randomImgBox{
     margin: 70px 20px 0 20px;
-    border: 4px solid black;
     border-radius: 25px;
     height: 80%;
 }
@@ -44,8 +55,15 @@
 .token1Count{
     margin: 70px 20px 0 20px;
     border-radius: 25px;
-    border: 4px solid black;
+    border: 2px solid white;
     height: 10%;
+}
+
+.token1Count > div{
+    padding-top: 2.2%;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
 }
 
 .transactionButton{
@@ -58,13 +76,24 @@
     width: 100%;
     height: 100%;
     border-radius: 25px;
+    font-size: 40px;
+    background-color:#FFCD4A;
 }
 
 .marketDescription{
     margin: 70px 20px 0 20px;
     border-radius: 25px;
-    border: 4px solid black;
+    border: 2px solid white;
     height: 40%;
+    align-items: center;
+    overflow: auto;
+}
+
+.description{
+    font-size: 30px;
+    color: white;
+    padding-top: 2%;
+    align-items: center;
 }
 
 @media screen and (max-width: 1600px){

@@ -20,7 +20,6 @@ const Community = () => {
     }
 
     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
-
     useEffect(() => {
         axios.get("http://localhost:8000/user/success",
             {withCredentials : true})

@@ -1,0 +1,78 @@
+.Comment{
+    margin: 10px 0px;
+}
+
+
+.Comment_View{
+    display: flex; 
+    margin-top: 10px;
+}
+/* 댓글 작성자 유저 이미지 */
+.Comment_View-UserImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+
+/* 댓글 컨테이너 */
+.Comment-container{
+    width: 100%;
+    margin-left: 10px;
+
+    background-color:#F2F2F2;
+    border-radius: 10px;
+    border: none;
+    padding: 10px ;
+
+}
+/* 댓글 유저 이름 시간 컨테이너*/
+.Comment-container-usertime{
+    display: flex;
+}
+
+/* 댓글 작성사 이름 */
+.Comment_UserInfo-name{
+    color: black;
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+}
+/* 댓글 작성 시간 */
+.Comment_UserInfo-date{
+    font-size: 15px;
+    margin-left: 10px;
+    color: rgb(150,150,150);
+    display: block;
+    text-align: left;
+}
+/* 댓글 내용 */
+.Comment_UserInfo-content{
+
+    color: black;
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    /* font-weight: 400; */
+}
+/* 댓글 작성 뷰  */
+.Comment_Writing{
+    margin-top: 20px;
+    display: flex;
+}
+/* 댓글 작성 textarea */
+.Comment_Writing-Textarea{
+    width: 100%;
+    height: 50px;
+    margin-left: 10px;
+    background-color:#F2F2F2;
+    border-radius: 10px;
+    border: none;
+    padding: 5px ;
+    font-size: 20px;
+}
+
+.Comment_Writing-Btn{
+    display: none;
+}

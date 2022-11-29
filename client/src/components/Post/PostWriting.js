@@ -13,10 +13,10 @@ const PostWriting = () => {
      //게시글 값 상태 저장
     const [content, setContent] = useState('')  //내용
     const [imgBoxTog, setImgBoxTog] = useState(false) // 이미지 있는지 확인
-    const [postimage, setPostimage] =useState('') //게시글 이미지
+    const [postImage, setPostImage] =useState('') //게시글 이미지
 
     const navigator = useNavigate();  
-
+    let dataURL ='';
     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
     useEffect(() => {
         axios.get("http://localhost:8000/user/success",
@@ -47,13 +47,20 @@ const PostWriting = () => {
     let input = e.target;
     let reader = new FileReader();
     reader.onload = function(){
-        // consdataURL = reader.result;
+        dataURL = reader.result;
         let upLoadIMG = document.getElementById('upload-img')
-        // upLoadIMG.src = dataURL;
-        // setImgBoxTog(true);
-        // setPostimage(dataURL);
+        upLoadIMG.src = dataURL;
+        setImgBoxTog(true);
+        setPostImage(dataURL);
     };
     reader.readAsDataURL(input.files[0]);
+    // console.log(reader)
+  }
+
+  // 이미지 삭제
+  const deleteImg = () => {
+    setImgBoxTog(false);
+    setPostImage('');
   }
 
     // textarea 크기 자동 조절
@@ -71,6 +78,7 @@ const PostWriting = () => {
         const content = e.target.value
         setContent(content);
       }
+
   // 게시글 작성 
     const Writing = () => {
         if( user.user_address === "" ){
@@ -84,8 +92,8 @@ const PostWriting = () => {
             user_nickname : user.user_nickname,
             user_img : user.user_img,
             post_content : content,
-            post_image : 'https://i.seadn.io/gae/Pjpj2wMnEqpFMTJXQatS8rcrYAHsAGLQ7WdNXAmvbtXdye8HGC7N1dOb9pHmmvlOtof2QVM5iJ70GIiCgBcL6e-UESMFzwas7U4O?auto=format&w=384',
-            post_date : "2022-11-20",
+            post_image : postImage,
+            // post_date : "2022-11-20",
             post_categorie : "jetris",
             },{withCredentials : true})
             .then(function (response) {
@@ -98,31 +106,43 @@ const PostWriting = () => {
                 console.log("실패")
                 console.log(Error)
             })
-    }}
+    }
+}
 
+    // 테스트 후 삭제
     const test = () => {
         console.log(user)
         console.log('isLogin :' + isLogin)
         console.log('account : ' + account)
         console.log('content :'+ content)
+        console.log('postImage : '+ postImage)
     }
 
   return (
     <div className='PostWriting'>
         {/* 상단 유저정보, 게시글 입력 */}
         <div className='PostWriting_Top'>
-            <img className='PostWriting_Top-UserImg' src='https://i.seadn.io/gae/Pjpj2wMnEqpFMTJXQatS8rcrYAHsAGLQ7WdNXAmvbtXdye8HGC7N1dOb9pHmmvlOtof2QVM5iJ70GIiCgBcL6e-UESMFzwas7U4O?auto=format&w=384'/> 
-            <textarea className='PostWriting_Top-Textarea' id="text-area" placeholder="게시글을 입력해주세요."onKeyDown={autoResizeTextarea} onKeyUp={autoResizeTextarea} onChange={getContent} />
+            <div className='PostWriting_Top-InputData'>
+                <img className='PostWriting_Top-UserImg' src={user.user_img}/> 
+                <textarea className='PostWriting_Top-Textarea' id="text-area" placeholder="게시글을 입력해주세요."onKeyDown={autoResizeTextarea} onKeyUp={autoResizeTextarea} onChange={getContent} />
+            </div>
+            <div className={`shareImgBox ${imgBoxTog ? "": "displaynone" }`}> 
+                <img id="upload-img" alt="face"></img>
+                <div>
+                <button className="deleteButton" onClick={deleteImg}>❌</button>
+                </div>
+              </div>
         </div>
         {/* 하단 이미지첨부, 게시글 등록 버튼 */}
         <div className='PostWriting_Bottom'>
             <div className='PostWriting_Bottom-ImgAdd' onClick={()=> {selectFile.current.click()}}> 
-            <input type='file' id='fileInput' accept='img/*' style={{display:"none"}} ref={selectFile} onChange={onLoadFile}></input>  
+            <input type='file' id='fileInput' accept='image/jpg, image/png, image/jpeg,'  style={{display:"none"}} ref={selectFile} onChange={onLoadFile}></input>  
                 <AddAPhotoIcon color='secondary'/>
                 <span className='PostWriting_Bottom-span'>사진</span>
             </div>
             <button className='btn-Shape btn-Size-verysmall' onClick={Writing} >게시</button> 
-            <button className='btn-Shape btn-Size-verysmall' onClick={test} >테스트</button> 
+            {/* 테스트 후 삭제 */}
+            {/* <button className='btn-Shape btn-Size-verysmall' onClick={test} >테스트</button>  */}
         </div>
     </div>
   )
