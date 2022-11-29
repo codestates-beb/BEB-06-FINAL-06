@@ -1,4 +1,6 @@
 // 유저 관련된 라우터
+
+
 const router = require('express').Router();
 
 const {connection} = require('../connect/db.js')
@@ -16,8 +18,7 @@ router.get('/findall', function (req, res) {
 router.post('/signup', function (req, res) {
     const address = req.body.user_address;
     const nickname = req.body.user_nickname;
-    const profileimg = 'https://i.seadn.io/gae/XSWGq3kn8k6NKlnMkgJK6MTWjUZBv0F4v6xpyhsCDDB4pfjMp6W4YU6' +
-            'L4xFAna1P4TGkuKPDhagdp_oPY1bgqelrLOy95Kxfou-SkA?auto=format&w=384'
+    const profileimg = req.body.user_img
     const token1amount = 0;
     const token2amount = 0;
     const score = 0;
