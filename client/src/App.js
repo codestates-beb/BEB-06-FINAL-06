@@ -23,10 +23,13 @@ function App() {
     });
     const [isLogin, setIsLogin] = useState(false);
     const [posts, setPosts] = useState([]);
+   
 
     return (
         <div className="App">
+
             <BrowserRouter>
+
             <UserContext.Provider value={{user, setUser, isLogin, setIsLogin, posts, setPosts}}>
                 <Routes>
                     <Route path='/' element={<MainPage />}/>
@@ -39,7 +42,9 @@ function App() {
                 </Routes>
 
                 </UserContext.Provider>
+
             </BrowserRouter>
+            
         </div>
     );
 }

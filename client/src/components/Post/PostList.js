@@ -4,6 +4,7 @@ import './PostList.css'
 import Post  from './Post'
 import axios from 'axios';
 import { UserContext } from '../../User/UserContext';
+import { BugReportTwoTone } from '@material-ui/icons';
 const PostList = () => {
   // const [post,setpost] = useState([]);
   const {posts, setPosts} = useContext(UserContext);
@@ -19,9 +20,9 @@ const PostList = () => {
       })
   }, [])
 
-
   return (
     <div>
+
    {posts
             // .slice(offset, offset + 10)
             .map((el)=>(
