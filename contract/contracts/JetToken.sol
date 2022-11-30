@@ -227,7 +227,7 @@ contract JetToken is ERC20 {
         winRewardAddr = _addr;
         winRewardAmount = _amount;
         uint rand = randMod(100);
-        if ( rand <= rewardProbability ) {// 90% 확률로 강화 스크롤 획득
+        if ( rand <= rewardProbability ) {
             super._transfer(address(treasuryWallet), address(winRewardAddr), winRewardAmount); // JT 토큰
             emit TokenRewarded(true);
         } else {
