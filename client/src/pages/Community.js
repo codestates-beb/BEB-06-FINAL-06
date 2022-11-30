@@ -6,42 +6,48 @@ import {AiOutlineComment} from 'react-icons/ai';
 import PostWriting from "../components/Post/PostWriting";
 import PostList from '../components/Post/PostList'
 import {useWeb3React} from '@web3-react/core';
-import { UserContext } from '../User/UserContext';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
-
+// import { UserContext } from '../User/UserContext';
+import { useRecoilState } from "recoil";
+import { userState } from '../recoil/user/atom';
+import { Login } from '../recoil/user/atom';
+// import { posts } from '../recoil/post/atom';
 const Community = () => {
     const {account, library, active, activate, deactivate} = useWeb3React();
-    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+    // const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+
+    const [user, setUser] = useRecoilState(userState)   // recoil user 선언
+    const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
+    
     const navigator = useNavigate(); 
     if(isLogin === false){
         navigator('/')
-        console.log("옹잉")
     }
 
-    // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
-    useEffect(() => {
-        axios.get("http://localhost:8000/user/success",
-            {withCredentials : true})
-            .then(function (response) {
-                console.log("Community success")
-                // console.log(response.data[0])
-                setIsLogin(true)    // 로그인 상태 유지
-                // 유저정보를 갱신함
-                setUser({
-                    id: response.data.id,
-                    user_address: response.data.user_address,
-                    user_nickname: response.data.user_nickname,
-                    user_token1amount: response.data.user_token1amount,
-                    user_token2amount: response.data.user_token2amount,
-                    user_score: response.data.user_score,
-                    user_img: response.data.user_img,
-                })
-            })
-            .catch((Error) => {
-                console.log(Error)
-            })
-        },[])
+    // // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
+    // useEffect(() => {
+    //     axios.get("http://localhost:8000/user/success",
+    //         {withCredentials : true})
+    //         .then(function (response) {
+    //             console.log("Community success")
+    //             // console.log(response.data[0])
+    //             setIsLogin(true)    // 로그인 상태 유지
+    //             // 유저정보를 갱신함
+    //             setUser({
+    //                 id: response.data.id,
+    //                 user_address: response.data.user_address,
+    //                 user_nickname: response.data.user_nickname,
+    //                 user_token1amount: response.data.user_token1amount,
+    //                 user_token2amount: response.data.user_token2amount,
+    //                 user_score: response.data.user_score,
+    //                 user_img: response.data.user_img,
+    //             })
+    //         })
+    //         .catch((Error) => {
+    //             console.log(Error)
+    //         })
+    //     },[])
         return (
             <div className="CommunityPage">
             <Header/>

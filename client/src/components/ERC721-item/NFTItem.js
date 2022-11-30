@@ -1,9 +1,34 @@
+import axios from 'axios'
 import React from 'react'
 import weth from '../../icon/weth.png'
 import './NFTItem.css'
-const Item = ({id, name, image, price}) => {
+import { useRecoilState } from "recoil";
+import { userState } from '../../recoil/user/atom';
+
+const NFTItem = ({id, name, image, price, loadpage}) => {
+    const [user, setUser] = useRecoilState(userState)   // recoil user 선언
+    // 판매하기 ?
     const Sell = () => {
-        
+        console.log(loadpage)
+    }
+    // 장착하기
+    const Mounting = () =>{
+        // 유저의 프로필이미지를 갱신시키고 -> 디비로 값 보냄 ( 다음에 로그인할때 유지 )
+        axios
+            .post("http://localhost:8000/nft/mounting", {
+                user_img: image,
+            },{withCredentials : true})
+            .then(function (response) {
+                console.log("성공")
+                console.log(response.data)
+                // window.location.reload();
+                setUser({...user,
+                    user_img : image })
+            })
+            .catch((Error) => {
+                console.log("실패")
+                console.log(Error)
+            })
     }
     return (
         <div className='nftitem'>
@@ -26,11 +51,14 @@ const Item = ({id, name, image, price}) => {
                 <div className='sell-container'>
                 {/* div sell-container 안에 Description 작성하면 됩니다.*/}
                 {/* <Lock fontSize='large'></Lock> */}
-                <button className='sell-container__btn sell-container__btn-size' onClick={Sell}>판매하기</button>
+                {loadpage === 'MyPage' ? 
+                <button className='sell-container__btn sell-container__btn-size' onClick={Mounting}>장착하기</button> 
+                : <button className='sell-container__btn sell-container__btn-size' onClick={Sell}>판매하기</button> }
+                
                 </div>
             </div>
         </div>
     )
 }
 
-export default Item
+export default NFTItem

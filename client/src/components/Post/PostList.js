@@ -5,9 +5,11 @@ import Post  from './Post'
 import axios from 'axios';
 import { UserContext } from '../../User/UserContext';
 import { BugReportTwoTone } from '@material-ui/icons';
+import { useRecoilState } from "recoil";
+
 const PostList = () => {
-  // const [post,setpost] = useState([]);
-  const {posts, setPosts} = useContext(UserContext);
+  const [posts, setPosts] = useState([]);
+
   useEffect(()=> {
       axios.get("http://localhost:8000/post/findall",
       {withCredentials: true})
