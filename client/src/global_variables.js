@@ -24,11 +24,11 @@ export const version = '367';
 
 export const SERVER_ENDPOINT = process.env.REACT_APP_SERVER_ENDPOINT;
 
-const getTokenContractABI = () => {
+const getJTokenContractABI = () => {
     return JTOKEN["abi"];
 }
 
-const getVTokenContractABI = () => {
+const getJ2TokenContractABI = () => {
     return J2TOKEN["abi"];
 }
 
@@ -36,7 +36,7 @@ const getNFTContractABI = () => {
     return NFT["abi"];
 }
 
-const getItemsContractABI = () => {
+const getJtemsContractABI = () => {
     return JTEMS["abi"];
 }
 
@@ -63,10 +63,10 @@ const getRouterContractABI = () => {
 
 
 
-export const JTOKEN_CONTRACT_ABI = getTokenContractABI();
-export const J2TOKEN_CONTRACT_ABI = getVTokenContractABI();
+export const JTOKEN_CONTRACT_ABI = getJTokenContractABI();
+export const J2TOKEN_CONTRACT_ABI = getJ2TokenContractABI();
 export const NFT_CONTRACT_ABI = getNFTContractABI();
-export const JTEMS_CONTRACT_ABI = getItemsContractABI();
+export const JTEMS_CONTRACT_ABI = getJtemsContractABI();
 export const MARKET_CONTRACT_ABI = getMarketContractABI();
 export const STAKING_CONTRACT_ABI = getStakingContractABI();
 export const LP_CONTRACT_ABI = getLPContractABI();
