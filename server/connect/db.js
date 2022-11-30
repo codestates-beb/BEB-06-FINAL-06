@@ -34,12 +34,12 @@ function(err, result){
 })
 
 // items 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists items(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255))", 
+connection.query("CREATE TABLE if not exists items(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255), image_url varchar(255))", 
 function(err, result){
     if(err) return console.log(err);
 })
 // nfts 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists nfts(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255))", 
+connection.query("CREATE TABLE if not exists nfts(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255), image_url varchar(255), nft_name varchar(255), price varchar(255) )", 
 function(err, result){
     if(err) return console.log(err);
 })

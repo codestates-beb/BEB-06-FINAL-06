@@ -93,11 +93,11 @@ router.post('/login', function (req, res) {
 
                         // access Token, refresh Token 발급
                         const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, {
-                            expiresIn: '1m',
+                            expiresIn: '24h',
                             issuer: 'About tech'
                         });
                         const refreshToken = jwt.sign(payload, process.env.REFRECH_SECRET, {
-                            expiresIn: '1h',
+                            expiresIn: '24h',
                             issuer: 'About tech'
                         });
                         res.cookie('accessToken', accessToken, {
