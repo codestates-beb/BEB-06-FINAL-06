@@ -5,11 +5,17 @@ import './PostWriting.css'
 import axios from 'axios';
 import {useWeb3React} from '@web3-react/core';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-import { UserContext } from '../../User/UserContext';
 import {useNavigate} from 'react-router-dom';
+// import { UserContext } from '../../User/UserContext';
+import { useRecoilState } from "recoil";
+import { userState } from '../../recoil/user/atom';
+import { Login } from '../../recoil/user/atom';
 const PostWriting = () => {
     const {account, library, active, activate, deactivate} = useWeb3React();
-    const {user, setUser, isLogin, setIsLogin, posts, setPosts} = useContext(UserContext);
+    // const {posts, setPosts} = useContext(UserContext);
+    const [user, setUser] = useRecoilState(userState)   // recoil user 선언
+    const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
+
      //게시글 값 상태 저장
     const [content, setContent] = useState('')  //내용
     const [imgBoxTog, setImgBoxTog] = useState(false) // 이미지 있는지 확인
@@ -18,28 +24,28 @@ const PostWriting = () => {
     const navigator = useNavigate();  
     let dataURL ='';
     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
-    useEffect(() => {
-        axios.get("http://localhost:8000/user/success",
-            {withCredentials : true})
-            .then(function (response) {
-                console.log("MainPage success")
-                // console.log(response.data[0])
-                setIsLogin(true)    // 로그인 상태 유지
-                // 유저정보를 갱신함
-                setUser({
-                    id: response.data[0].id,
-                    user_address: response.data[0].user_address,
-                    user_nickname: response.data[0].user_nickname,
-                    user_token1amount: response.data[0].user_token1amount,
-                    user_token2amount: response.data[0].user_token2amount,
-                    user_score: response.data[0].user_score,
-                    user_img: response.data[0].user_img,
-                })
-            })
-            .catch((Error) => {
-                console.log(Error)
-            })
-        },[])
+    // useEffect(() => {
+    //     axios.get("http://localhost:8000/user/success",
+    //         {withCredentials : true})
+    //         .then(function (response) {
+    //             console.log("MainPage success")
+    //             // console.log(response.data[0])
+    //             setIsLogin(true)    // 로그인 상태 유지
+    //             // 유저정보를 갱신함
+    //             setUser({
+    //                 id: response.data[0].id,
+    //                 user_address: response.data[0].user_address,
+    //                 user_nickname: response.data[0].user_nickname,
+    //                 user_token1amount: response.data[0].user_token1amount,
+    //                 user_token2amount: response.data[0].user_token2amount,
+    //                 user_score: response.data[0].user_score,
+    //                 user_img: response.data[0].user_img,
+    //             })
+    //         })
+    //         .catch((Error) => {
+    //             console.log(Error)
+    //         })
+    //     },[])
     
     // 이미지 업로드 ---------------------------
     const selectFile = useRef("")

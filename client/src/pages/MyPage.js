@@ -1,54 +1,78 @@
-import React, {useContext, useEffect} from 'react' // 선언
+import React, {useContext, useEffect, useState} from 'react' // 선언
 import '../style/MyPage.css'
 import ItemList from '../components/ERC1155-item/ItemList'
 import NFTItemlist from '../components/ERC721-item/NFTItemList'
 import Header from '../components/Header'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import dummydata from '../components/ERC1155-item/dummy';   // 나중에 디비로 변경
+import { CompareArrowsOutlined } from '@material-ui/icons'
+// import {UserContext} from '../User/UserContext'; // 선언
+import { useRecoilState } from "recoil";
+import { userState } from '../recoil/user/atom';
+import { Login } from '../recoil/user/atom';
 
-import {UserContext} from '../User/UserContext'; // 선언
 
 const MyPage = () => {
     const navigator = useNavigate();
-    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+    // const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
     // user : 현재 유저 정보, setUser : 유저 정보 갱신, isLogin : 현재 로그인 상태, setisLogin : 로그인 상태 갱신
-     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
 
+    const [user, setUser] = useRecoilState(userState)   // recoil user 선언
+    const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
+    const [myNft, setMyNft] = useState([])
+    // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
      // 유저 정보 갱신
-     useEffect(() => {
-        axios.get("http://localhost:8000/user/success",
-            {withCredentials : true})
-            .then(function (response) {
-                console.log("MyPage success")
-                // console.log(response.data)
-                setIsLogin(true)    // 로그인 상태 유지
-                // 유저정보를 갱신함
-                setUser({
-                    id: response.data.id,
-                    user_address: response.data.user_address,
-                    user_nickname: response.data.user_nickname,
-                    user_token1amount: response.data.user_token1amount,
-                    user_token2amount: response.data.user_token2amount,
-                    user_score: response.data.user_score,
-                    user_img: response.data.user_img,
-                })
-            })
-            .catch((Error) => {
-                console.log(Error)
-            })
-        },[])
+    //  useEffect(() => {
+    //     axios.get("http://localhost:8000/user/success",
+    //         {withCredentials : true})
+    //         .then(function (response) {
+    //             console.log("MyPage success")
+    //             // console.log(response.data)
+    //             setIsLogin(true)    // 로그인 상태 유지
+    //             // 유저정보를 갱신함
+    //             setUser({
+    //                 id: response.data.id,
+    //                 user_address: response.data.user_address,
+    //                 user_nickname: response.data.user_nickname,
+    //                 user_token1amount: response.data.user_token1amount,
+    //                 user_token2amount: response.data.user_token2amount,
+    //                 user_score: response.data.user_score,
+    //                 user_img: response.data.user_img,
+    //             })
+    //         })
+    //         .catch((Error) => {
+    //             console.log(Error)
+    //         })
+    //     },[])
     ///////
+
+    // 아이템/NFT 관련
+    // 오너가 자신인 NFT를 불러온다
+    // 1. DB를 조회해서 owner의 값이 자신의 주소값인 데이터만 가져온다.
+    // 2. 해당 데이터들을 배치한다. -> 아래쪽에 
+        useEffect(() => {
+            axios.get("http://localhost:8000/nft/mynft",
+                {withCredentials : true})
+                .then(function (response) {
+                    console.log(response)
+                    setMyNft(response.data)
+                    
+                })
+                .catch((Error) => {
+                    console.log(Error)
+                })
+            },[])
+
+    // NFT클릭시 프로필 이미지가 변경된다.
 
     const gamePageLoad = () => {
         navigator('/GamePage');
     }
-
-
     
     const test = () => {
-
-        console.log(user)
-    }
+         console.log(myNft)
+    }   
 
     return (
         <div className='MyPage'>
@@ -79,7 +103,7 @@ const MyPage = () => {
                         <span className='container-title'>
                             {`Profile (ERC1155)`}
                             <div>
-                                <ItemList/>
+                                <ItemList item={dummydata}/>
                             </div>
                         </span>
                     </div>
@@ -87,7 +111,7 @@ const MyPage = () => {
                         <span className='container-title'>
                             {`NFT (ERC721)`}
                             <div>
-                                <NFTItemlist/>
+                                <NFTItemlist nftitem={myNft} loadpage='MyPage' />
                             </div>
                         </span>
                     </div>

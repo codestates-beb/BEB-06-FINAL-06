@@ -5,32 +5,39 @@ import NFTItemlist from '../components/ERC721-item/NFTItemList'
 import Itemlist from '../components/ERC1155-item/ItemList'
 import Box from '../icon/Box.png'
 import axios from 'axios'
-import {UserContext} from '../User/UserContext'
+// import {UserContext} from '../User/UserContext'
+import dummydata from '../components/ERC1155-item/dummy';
+import { useRecoilState } from "recoil";
+import { userState } from '../recoil/user/atom';
+import { Login } from '../recoil/user/atom';
 
-const ItemMarket = () => {
-    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
-    useEffect(() => {
-        axios.get("http://localhost:8000/user/success",
-            {withCredentials : true})
-            .then(function (response) {
-                console.log("MyPage success")
-                // console.log(response.data)
-                setIsLogin(true)    // 로그인 상태 유지
-                // 유저정보를 갱신함
-                setUser({
-                    id: response.data.id,
-                    user_address: response.data.user_address,
-                    user_nickname: response.data.user_nickname,
-                    user_token1amount: response.data.user_token1amount,
-                    user_token2amount: response.data.user_token2amount,
-                    user_score: response.data.user_score,
-                    user_img: response.data.user_img,
-                })
-            })
-            .catch((Error) => {
-                console.log(Error)
-            })
-        },[])
+const ItemMarket = ({dummydata}) => {
+    const [user, setUser] = useRecoilState(userState)   // recoil user 선언
+    const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
+
+    // const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+    // useEffect(() => {
+    //     axios.get("http://localhost:8000/user/success",
+    //         {withCredentials : true})
+    //         .then(function (response) {
+    //             console.log("MyPage success")
+    //             // console.log(response.data)
+    //             setIsLogin(true)    // 로그인 상태 유지
+    //             // 유저정보를 갱신함
+    //             setUser({
+    //                 id: response.data.id,
+    //                 user_address: response.data.user_address,
+    //                 user_nickname: response.data.user_nickname,
+    //                 user_token1amount: response.data.user_token1amount,
+    //                 user_token2amount: response.data.user_token2amount,
+    //                 user_score: response.data.user_score,
+    //                 user_img: response.data.user_img,
+    //             })
+    //         })
+    //         .catch((Error) => {
+    //             console.log(Error)
+    //         })
+    //     },[])
  return(
   <div className='ItemMarket'>
     <Header/>
@@ -55,7 +62,7 @@ const ItemMarket = () => {
                 </div>
             </div>
             <div className='imgCollect'>
-                <div className='NFTs'><Itemlist/></div>
+                <div className='NFTs'><Itemlist item={dummydata} /></div>
             </div>
         </div>
   </div>
