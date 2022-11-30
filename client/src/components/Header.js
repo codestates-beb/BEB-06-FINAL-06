@@ -5,17 +5,21 @@ import logo from '../icon/logo.png'
 import {useWeb3React} from '@web3-react/core';
 import { UserContext } from '../User/UserContext';
 import axios from 'axios';
-
+import { useRecoilState } from "recoil";
+import { userState } from '../recoil/user/atom';
+import { Login } from '../recoil/user/atom';
+import {useNavigate} from 'react-router-dom'
 const Header = () => {
     const {account, library, active, activate, deactivate} = useWeb3React();
-    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
-
-
+    // const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+    const [user, setUser] = useRecoilState(userState)   // recoil user 선언
+    const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
+    const navigator = useNavigate(); 
     // 로그아웃 버튼 클릭
     const Logout = () => {
         // 쿠키삭제, 지갑 접속 종료
         // 지갑 연결 해제
-    
+            localStorage.clear();
             deactivate()
             setIsLogin(false)
             setUser({        
@@ -34,6 +38,7 @@ const Header = () => {
         .then(function (response) {
             console.log(response.data)
             console.log("로그아웃!")
+            navigator('/')
         })
         .catch((Error) => {
             console.log(Error.response.data)

@@ -7,6 +7,11 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import Comment from './Comment'
 
+import { useRecoilState } from "recoil";
+import { userState } from '../../recoil/user/atom';
+import { Login } from '../../recoil/user/atom';
+
+
 const Post = ({id, user_address,user_nickname, user_img, post_content, post_image, post_date, post_categorie}) => {
     const [showComment, setShowComment] = useState(false)
     // 댓글 클릭시 댓글창 오픈

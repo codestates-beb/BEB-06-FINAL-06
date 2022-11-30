@@ -6,40 +6,44 @@ import logo from '../icon/logo.png';
 import axios from 'axios';
 import {useWeb3React} from '@web3-react/core';
 import {injected} from '../connectors/connectors';
-import { UserContext } from '../User/UserContext';
-
+// import { UserContext } from '../User/UserContext';
+import { useRecoilState } from "recoil";
+import { userState } from '../recoil/user/atom';
+import { Login } from '../recoil/user/atom';
 const MainPage = () => {
     const navigator = useNavigate(); // 회원가입 버튼 클릭시 회원가입 페이지 이동하기위해 선언
     const {account, library, active, activate, deactivate} = useWeb3React();
-    const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
-
+    // const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+    const [user, setUser] = useRecoilState(userState)   // recoil user 선언
+    const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
  
     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
-    useEffect(() => {
-        axios.get("http://localhost:8000/user/success",
-            {withCredentials : true})
-            .then(function (response) {
-                console.log("MainPage success")
-                // console.log(response.data[0])
-                setIsLogin(true)    // 로그인 상태 유지
-                // 유저정보를 갱신함
-                setUser({
-                    id: response.data.id,
-                    user_address: response.data.user_address,
-                    user_nickname: response.data.user_nickname,
-                    user_token1amount: response.data.user_token1amount,
-                    user_token2amount: response.data.user_token2amount,
-                    user_score: response.data.user_score,
-                    user_img: response.data.user_img,
-                })
-            })
-            .catch((Error) => {
-                console.log(Error)
-            })
-        },[])
+    // useEffect(() => {
+    //     axios.get("http://localhost:8000/user/success",
+    //         {withCredentials : true})
+    //         .then(function (response) {
+    //             console.log("MainPage success")
+    //             // console.log(response.data[0])
+    //             setIsLogin(true)    // 로그인 상태 유지
+    //             // 유저정보를 갱신함
+    //             setUser({
+    //                 id: response.data.id,
+    //                 user_address: response.data.user_address,
+    //                 user_nickname: response.data.user_nickname,
+    //                 user_token1amount: response.data.user_token1amount,
+    //                 user_token2amount: response.data.user_token2amount,
+    //                 user_score: response.data.user_score,
+    //                 user_img: response.data.user_img,
+    //             })
+    //         })
+    //         .catch((Error) => {
+    //             console.log(Error)
+    //         })
+    //     },[])
     
     // 지갑 연결 상태(active)가 변경될경우 useEffect 실행 
     useEffect(() => {
+        console.log("실행")
         axios
         .post("http://localhost:8000/user/login", {
             user_address: account,
@@ -93,7 +97,7 @@ const MainPage = () => {
 
 
      // 로그인 버튼 클릭시 동작
-     const Login = async() => {
+     const RunLogin = async() => {
         console.log("로그인 버튼 클릭")
          console.log(active)
 
@@ -135,6 +139,7 @@ const MainPage = () => {
     const Logout = () => {
         // 쿠키삭제, 지갑 접속 종료
         // 지갑 연결 해제
+        localStorage.clear();
         if(active){
             deactivate()
             setIsLogin(false)
@@ -152,7 +157,7 @@ const MainPage = () => {
 
     const test = () => {
         console.log(user)
-        console.log('isLogin :' + isLogin)
+        console.log(isLogin)
         console.log('account : ' + account)
     }
 
@@ -172,7 +177,7 @@ const MainPage = () => {
                         
                     </>
                     : <>
-                        <button className='btn-Shape btn-Size-default' onClick={Login}>로그인</button>
+                        <button className='btn-Shape btn-Size-default' onClick={RunLogin}>로그인</button>
                         <button className='btn-Shape btn-Size-default' onClick={SignupPageLoad}>회원가입</button>
                     </>}            
                     {/* <button className='btn-Shape btn-Size-default' onClick={accessToken}>accessToken</button>
