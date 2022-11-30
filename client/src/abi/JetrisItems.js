@@ -1,4 +1,4 @@
-{
+const JTEMS = {
   "contractName": "JetrisItems",
   "abi": [
     {
@@ -52430,3 +52430,5 @@
     "version": 1
   }
 }
+
+module.exports = JTEMS;

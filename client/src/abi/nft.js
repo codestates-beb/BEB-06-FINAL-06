@@ -1,4 +1,4 @@
-{
+const NFT = {
   "contractName": "JetrisNFT",
   "abi": [
     {
@@ -29436,3 +29436,5 @@
     "version": 1
   }
 }
+
+module.exports = NFT;

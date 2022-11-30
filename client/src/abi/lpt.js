@@ -1,4 +1,4 @@
-{
+const LPT = {
   "contractName": "LPT",
   "abi": [
     {
@@ -13624,3 +13624,5 @@
     "version": 1
   }
 }
+
+module.exports = LPT;

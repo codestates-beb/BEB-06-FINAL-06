@@ -1,4 +1,4 @@
-{
+const JTOKEN = {
   "contractName": "JetToken",
   "abi": [
     {
@@ -30992,3 +30992,5 @@
     "version": 1
   }
 }
+
+module.exports = JTOKEN;

@@ -1,4 +1,4 @@
-{
+const LP = {
   "contractName": "LiquidityPool",
   "abi": [
     {
@@ -19927,3 +19927,5 @@
     "version": 1
   }
 }
+
+module.exports = LP;

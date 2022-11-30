@@ -1,4 +1,4 @@
-{
+const STAKING = {
   "contractName": "Staking",
   "abi": [
     {
@@ -17535,3 +17535,5 @@
     "version": 1
   }
 }
+
+module.exports = STAKING;

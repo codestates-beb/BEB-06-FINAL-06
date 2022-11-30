@@ -1,4 +1,4 @@
-{
+const MARKET = {
   "contractName": "JetrisMarket",
   "abi": [
     {
@@ -31883,3 +31883,5 @@
     "version": 1
   }
 }
+
+module.exports = MARKET;

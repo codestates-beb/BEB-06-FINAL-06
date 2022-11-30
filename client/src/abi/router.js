@@ -1,4 +1,4 @@
-{
+const ROUTER = {
   "contractName": "JetTRouter",
   "abi": [
     {
@@ -5878,3 +5878,5 @@
     "version": 1
   }
 }
+
+module.exports = ROUTER;
