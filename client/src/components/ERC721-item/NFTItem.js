@@ -10,6 +10,7 @@ const NFTItem = ({id, name, image, price, loadpage}) => {
     // 판매하기 ?
     const Sell = () => {
         console.log(loadpage)
+        console.log(name)
     }
     // 장착하기
     const Mounting = () =>{
@@ -52,9 +53,15 @@ const NFTItem = ({id, name, image, price, loadpage}) => {
                 {/* div sell-container 안에 Description 작성하면 됩니다.*/}
                 {/* <Lock fontSize='large'></Lock> */}
                 {loadpage === 'MyPage' ? 
-                <button className='sell-container__btn sell-container__btn-size' onClick={Mounting}>장착하기</button> 
-                : <button className='sell-container__btn sell-container__btn-size' onClick={Sell}>판매하기</button> }
+                <div>
+                    <button className='sell-container__btn sell-container__btn-size' onClick={Mounting}>장착하기</button> 
+                    <button className='sell-container__btn sell-container__btn-size' onClick={Sell}>판매하기</button> 
+                </div>
+                :
                 
+                    <div className='nftname'>{name}</div> 
+                
+                }
                 </div>
             </div>
         </div>

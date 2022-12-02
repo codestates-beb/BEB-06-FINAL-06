@@ -1,0 +1,141 @@
+.NFTMarket{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../icon/002.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: auto;
+    text-align: center;
+}
+
+.NftMarket_Content{
+     width: 100%;
+    text-align: center;   
+}
+
+.NFTMarket_Top{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    margin-top: 20px;
+}
+
+.NFTMarket_Top-random{
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.NFTMarket_Top-random > img{
+    width: 95%;
+    height: 95%;
+    border-radius: 25px;
+    border: #1e1e1e;
+}
+
+.NFTMarket_Top-detailed{
+    display: flex;
+    width: 50%;
+    float: right;
+    background-color: #1f1f1f;
+    height: 100%;
+    justify-content: center;
+}
+
+.NFTMarket_Top-detailed2{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    
+
+}
+
+.NFTMarket_Top-detailed-title-container{
+    width: 100%;
+    height: 25%;
+    border-bottom: 1px solid #dfdfdf65;
+    /* padding: 10px; */
+    /* float: left; */
+    
+}
+
+.NFTMarket_Top-detailed-title{
+    margin-top: 10px;
+    margin-left: 10px;
+    color:bisque;
+    font-weight: 700;
+    font-size: 25px;
+    /* float: left; */
+    text-align: left;
+}
+.NFTMarket_Top-detailed-title-content{
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+}
+.NFTMarket_Top-detailed-title-content2{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+}
+
+
+.NFTMarket_Top-detailed-price{
+    border-bottom: 1px solid #dfdfdf65
+}
+
+
+
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+
+}
+
+.price > img{
+    width: 70px;
+    height: 80px;
+}
+.price > span{
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.NFTMarket_Top-detailed-btn{
+    margin-top: 10px;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.NFTMarket_Top-detailed-btn > button{
+    /* height: 100%; */
+}
+
+@media screen and (max-width: 1600px){
+    .NFTMarket{
+        display: grid;
+    }
+
+    .NFTMarket_Top-random{
+    width: 100%;
+    }
+
+    .NFTMarket_Top-detailed{
+    width: 100%;
+    }
+}

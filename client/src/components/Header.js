@@ -63,20 +63,20 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='header__navmenu__button'>
-                    <Link to="/itemmarket" className='link'>
+                    <Link to="/Market" className='link'>
                         <span className='header__navmenu__button__icon'>
-                            Item 
+                            Market 
                         </span>
                     </Link>
                 </div>
                 {/* NFT Market 버튼 */}
-                <div className='header__navmenu__button'>
+                {/* <div className='header__navmenu__button'>
                     <Link to="/nftmarket" className='link'>
                         <span className='header__navmenu__button__icon'>
                             NFT
                         </span>
                     </Link>
-                </div>
+                </div> */}
                 {/* My Page 버튼 */}
                 <div className='header__navmenu__button'>
                     <Link to="/mypage" className='link'>
@@ -103,8 +103,9 @@ const Header = () => {
                     </label>
             <ul className="menu__box">
                  <li><Link to='/community'><a className="menu__item">Community</a></Link></li>
-                 <li><Link to='/itemmarket'><a className="menu__item">Item</a></Link></li>
-                 <li><Link to='/nftmarket'><a className="menu__item">NFT</a></Link></li>
+                 <li><Link to='/market'><a className="menu__item">Market</a></Link></li>
+                 {/* <li><Link to='/itemmarket'><a className="menu__item">Item</a></Link></li>
+                 <li><Link to='/nftmarket'><a className="menu__item">NFT</a></Link></li> */}
                  <li><Link to='/mypage'><a className="menu__item">MyPage</a></Link></li>
                  <li>
                     {/* <Link to='/'> */}

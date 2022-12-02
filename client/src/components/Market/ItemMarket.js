@@ -1,17 +1,16 @@
 import React, {useContext, useEffect} from 'react'
-import Header from '../components/Header'
-import '../style/ItemMarket.css'
-import NFTItemlist from '../components/ERC721-item/NFTItemList'
-import Itemlist from '../components/ERC1155-item/ItemList'
-import Box from '../icon/Box.png'
+// import Header from '../components/Header'
+import './ItemMarket.css'
+import Itemlist from '../ERC1155-item/ItemList'
+import Box from '../../icon/Box.png'
 import axios from 'axios'
 // import {UserContext} from '../User/UserContext'
-import dummydata from '../components/ERC1155-item/dummy';
+import dummydata from '../ERC1155-item/dummy';
 import { useRecoilState } from "recoil";
-import { userState } from '../recoil/user/atom';
-import { Login } from '../recoil/user/atom';
+import { userState } from '../../recoil/user/atom';
+import { Login } from '../../recoil/user/atom';
 
-const ItemMarket = ({dummydata}) => {
+const ItemMarket = () => {
     const [user, setUser] = useRecoilState(userState)   // recoil user 선언
     const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
 
@@ -38,9 +37,14 @@ const ItemMarket = ({dummydata}) => {
     //             console.log(Error)
     //         })
     //     },[])
+
+    const Transaction = () => {
+        alert('아이템이 구매되었습니다. 마이페이지에서 확인하세요.')
+    }
+    
  return(
   <div className='ItemMarket'>
-    <Header/>
+    {/* <Header/> */}
         <div className='item_Content'>
             <div className='randomImg'>
                 <div className='randomImgBox'>
@@ -48,7 +52,11 @@ const ItemMarket = ({dummydata}) => {
                 </div>
             </div>
             <div className='itemInfo'>
-                <div className='transactionButton'><button>Transaction Button</button></div>
+                <div className='transactionButton'>
+                    <button onClick={Transaction}>
+                        Transaction Button
+                    </button>
+                </div>
                 <div className='token1Count'>
                     <div>ERC-20 Token1 Count : {user.user_token1amount}개</div>
                 </div>
@@ -62,7 +70,9 @@ const ItemMarket = ({dummydata}) => {
                 </div>
             </div>
             <div className='imgCollect'>
-                <div className='NFTs'><Itemlist item={dummydata} /></div>
+                <div className='NFTs'>
+                    <Itemlist item={dummydata} />
+                </div>
             </div>
         </div>
   </div>

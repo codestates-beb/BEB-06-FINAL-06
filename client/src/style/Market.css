@@ -1,0 +1,100 @@
+.Market{
+    width: 100%;
+
+
+}
+
+.Market_Page{
+
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    border: 3px solid red;
+}
+
+.Market_Header{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Market_Header-left{
+    display: flex; 
+    justify-content: center;
+    width: 50%;
+}
+
+.Market_Header-title{
+    /* margin-left: 10px ; */
+    margin-right: 20px;
+    font-size: 40px;
+    font-weight: 800;
+    color: aliceblue;
+}
+
+.Market_Header-button{
+    background-color: aliceblue;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    margin: 0px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Market_Header-button:hover{
+    background-color: burlywood;
+}
+.Market_Header-right{
+    display: flex;
+    width: 50%;
+    /* background-color: aliceblue; */
+    border-radius: 10px;
+    justify-content: right;
+    align-items: center;
+    margin-right: 10px;
+
+}
+.Market_Header-token{
+    background-color: aliceblue;
+    margin-right: 10px;
+    width: 30%;
+
+
+    
+
+}
+.Market_Header-token-title{
+    color: rgb(164, 104, 0);
+    font-weight: 800;
+
+}
+
+.Market_Header-token-content{
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+
+}
+
+.Market_Content{
+    border: 2px solid red;
+}
+
+@media screen and (max-width: 1600px){
+    .Market{
+        display: grid;
+    }
+
+    .randomImg{
+    width: 100%;
+    }
+
+    .itemInfo{
+    width: 100%;
+    }
+}
