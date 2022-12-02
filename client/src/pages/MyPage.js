@@ -5,7 +5,8 @@ import NFTItemlist from '../components/ERC721-item/NFTItemList'
 import Header from '../components/Header'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import dummydata from '../components/ERC1155-item/dummy';   // 나중에 디비로 변경
+import itemdummy from '../components/ERC1155-item/dummy';   // 나중에 디비로 변경
+import nftdummy from '../components/ERC721-item/nftdummy';   // 나중에 디비로 변경
 import { CompareArrowsOutlined } from '@material-ui/icons'
 // import {UserContext} from '../User/UserContext'; // 선언
 import { useRecoilState } from "recoil";
@@ -22,30 +23,6 @@ const MyPage = () => {
     const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
     const [myNft, setMyNft] = useState([])
     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
-     // 유저 정보 갱신
-    //  useEffect(() => {
-    //     axios.get("http://localhost:8000/user/success",
-    //         {withCredentials : true})
-    //         .then(function (response) {
-    //             console.log("MyPage success")
-    //             // console.log(response.data)
-    //             setIsLogin(true)    // 로그인 상태 유지
-    //             // 유저정보를 갱신함
-    //             setUser({
-    //                 id: response.data.id,
-    //                 user_address: response.data.user_address,
-    //                 user_nickname: response.data.user_nickname,
-    //                 user_token1amount: response.data.user_token1amount,
-    //                 user_token2amount: response.data.user_token2amount,
-    //                 user_score: response.data.user_score,
-    //                 user_img: response.data.user_img,
-    //             })
-    //         })
-    //         .catch((Error) => {
-    //             console.log(Error)
-    //         })
-    //     },[])
-    ///////
 
     // 아이템/NFT 관련
     // 오너가 자신인 NFT를 불러온다
@@ -55,7 +32,7 @@ const MyPage = () => {
             axios.get("http://localhost:8000/nft/mynft",
                 {withCredentials : true})
                 .then(function (response) {
-                    console.log(response)
+                    console.log(response.data)
                     setMyNft(response.data)
                     
                 })
@@ -72,6 +49,7 @@ const MyPage = () => {
     
     const test = () => {
          console.log(myNft)
+         console.log(user.user_img)
     }   
 
     return (
@@ -95,7 +73,7 @@ const MyPage = () => {
                     <button
                         className='btn-Shape btn-Size-long btn-gamestart'
                         onClick={gamePageLoad}>게임 시작</button>
-                    <button className='btn-Shape btn-Size-long btn-gamestart' onClick={test}>test</button>
+                    {/* <button className='btn-Shape btn-Size-long btn-gamestart' onClick={test}>test</button> */}
                 </div>
                 {/* 마이페이지 오른쪽 구성 */}
                 <div className='MyPage_Content-right'>
@@ -103,7 +81,7 @@ const MyPage = () => {
                         <span className='container-title'>
                             {`Profile (ERC1155)`}
                             <div>
-                                <ItemList item={dummydata}/>
+                                <ItemList item={itemdummy}/>
                             </div>
                         </span>
                     </div>
