@@ -18,6 +18,7 @@ const NFTItemlist = ({nftitem, loadpage}) => {
 
     return (
         <div className="nftitemList">
+
             <div className='nftitemListItem'>
                 {
                     nftitem 

@@ -2,98 +2,316 @@
 
 const dummy = [
     {
-        // 이름, 아이디, 이미지, 가격
-        id: "1",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/Pjpj2wMnEqpFMTJXQatS8rcrYAHsAGLQ7WdNXAmvbtXdye8HGC7N1dOb9pHmmvlOtof2QVM5iJ70GIiCgBcL6e-UESMFzwas7U4O?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "01",
+        name: "Nomal_01",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-1.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "2",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/yXqK4gfWJAGPnxvSWUYGyRWymHXzKa2kYjcgBzg-GPKmxdwx4dRU7lUGTeR_nrHFGUXYcvbVdufOzjYm6XhlKf1tsIDz7EgKI7BZJA?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "02",
+        name: "Nomal_02",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-2.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "3",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/PDiY7sNd_B9J1otsiu7_fRROVYwAYUaXTogjnoMUmSZ4FbSeJDgIZJWYP2Mn2LVKbc3TlOTKpblrAANXn0aJ6iqm9W2DV3aL5R3DBsg?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "03",
+        name: "Nomal_03",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-3.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "4",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/AZj7Da-I2k5YePO1cQ5W5p3r27TSbLypmJwIm96D0NT1xgpvnm8UMVtuxXOG894sLs1SSKMYw-Av5jWFLzyDHEKZCu36ilPLVesR3g?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "04",
+        name: "Nomal_04",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-4.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "5",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/ErjkSwxesz3p9vI_u5m0GglPcAQfB78DsRHkodEJRdxTqDOurdip98y_cLJRKDlyGwI59C3PImr2lYYbKv_wi78nYgdv6mdSDIuYAWM?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "05",
+        name: "Nomal_05",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-5.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "6",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/Hpk9ghIdxgGOeoxDq42UXO5vz2eyeo1usziRkmufmc97FNd0CuO8tsbWQIwt0DVfqALzRpWX3VtBGVTYUDkMGibF3slziYbjp1H-bg?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "06",
+        name: "Nomal_06",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-6.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "7",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/ttvu8FD2XiEKN1s6vZ8jj0IA788pZTWucQmcE6qClTilGQFMMCRGlaohiQPfdp-IOpZHaNbTJyHDusUdnOZlh-V0czNzZ_2nu-jFjzc?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "07",
+        name: "Nomal_07",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-7.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "8",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/iyNRdrTQSpeD_H-_ej97MzkjddCnY88Is1LPR04uGl0e3x7gqtRSI1vp8yOLYbB0rZViRll54GjbOv11Bxs11iKf5hhQuaT_l2OE?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "08",
+        name: "Nomal_08",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-8.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
-        id: "9",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/GVSP9jFHzamfJc-VMAD34n_WRnKhwIHjzz90V9bXL3-bPGKpn8yhQWUUW916UrXurhx2t42T38NMq0fD10vjxcsoporRXOwFBKZQRK8?auto=format&w=384",
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "09",
+        name: "Nomal_09",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-9.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
+        // 아이디, 이름, 이미지, 등급, 가격
         id: "10",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/XSWGq3kn8k6NKlnMkgJK6MTWjUZBv0F4v6xpyhsCDDB4pfjMp6W4YU6L4xFAna1P4TGkuKPDhagdp_oPY1bgqelrLOy95Kxfou-SkA?auto=format&w=384",
+        name: "Nomal_10",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-10.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
+        // 아이디, 이름, 이미지, 등급, 가격
         id: "11",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/u_OCIPVeeBNCyFuqT082iWOqCzMaEcxbW3apS1ZDeHqnCmsMmyoiczPzIQ9wVEj_E2QX4PvJswz8GVqQ9OXcY7lFvvG9vx8rsgE1vio?auto=format&w=384",
+        name: "Nomal_11",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-11.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
+        // 아이디, 이름, 이미지, 등급, 가격
         id: "12",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/ykQ6N7UvTepOpBlGKT9KgLQtQPeXYOYLIPR531IU6CX1qKVwO4Y2___32uOM1K61TdmglQZdk5kp2uvYsn-xkA8piye5bbLSJLgjDQ?auto=format&w=384",
+        name: "Nomal_12",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-12.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
+        // 아이디, 이름, 이미지, 등급, 가격
         id: "13",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/KBeF05JuxSdAB262n2Y_sh-GLuBiWe_0dUsDtQEZ1Q79n4C2QS7YiVDZEdrCSqS8llbeurqBAyDgJvRrlwbDUnwYdVG-eP20q-5oBg?auto=format&w=384",
+        name: "Nomal_13",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-13.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
+        // 아이디, 이름, 이미지, 등급, 가격
         id: "14",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/V3xxrMSQrOBvuQ-QaX62iV1h9EGyH9s25ZZbjpQgBE9hpXjmubUB5DZleJO7jdyYR88FGoCc1pu0CUTunfXvOMjd5nRvVgpa69Fq?auto=format&w=384",
+        name: "Nomal_14",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-14.png-min.png",
+        rating: "Nomal",
         price: "0.01 ETH",
     }, 
     {
+        // 아이디, 이름, 이미지, 등급, 가격
         id: "15",
-        name: "Crumbys Bakery",
-        image: "https://i.seadn.io/gae/5bML984Pt1DZZxljhy-NNjpw4L7hLE1Aw-zapyusyGuo2-zsjx31UUL5T0l5ilFPmCxnLYdWviHAQpjauSKAuX2ykBQWOBvnt_IepGE?auto=format&w=384",
+        name: "Nomal_15",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-15.png-min.png",
+        rating: "Nomal",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "16",
+        name: "Nomal_16",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-16.png-min.png",
+        rating: "Nomal",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "17",
+        name: "Nomal_17",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-17.png-min.png",
+        rating: "Nomal",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "18",
+        name: "Nomal_18",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-18.png-min.png",
+        rating: "Nomal",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "19",
+        name: "Nomal_19",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-19.png-min.png",
+        rating: "Nomal",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "20",
+        name: "Nomal_20",
+        image: "https://gateway.pinata.cloud/ipfs/QmbohdkseCrnixJMLAXuD3MMJFxLR7BUBX5C7yT5RgYc7D/New%20Piskel-20.png-min.png",
+        rating: "Nomal",
+        price: "0.01 ETH",
+    }, 
+        
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "21",
+        name: "Real_01",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-21.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "22",
+        name: "Real_02",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-22.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "23",
+        name: "Real_03",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-23.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "24",
+        name: "Real_04",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-24.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "25",
+        name: "Real_05",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-25.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "26",
+        name: "Real_06",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-26.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "27",
+        name: "Real_07",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-27.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "28",
+        name: "Real_08",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-28.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "29",
+        name: "Real_09",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-29.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "30",
+        name: "Real_10",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-30.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "31",
+        name: "Real_11",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-31.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "32",
+        name: "Real_12",
+        image: "https://gateway.pinata.cloud/ipfs/QmYNj3TrKaG7rrWhb4pbA7ptTXGzL4q1AhxeGRyLELb83g/New%20Piskel-32.png-min.png",
+        rating: "Rare",
+        price: "0.01 ETH",
+    }, 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "33",
+        name: "Real_01",
+        image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-33.png-min.png",
+        rating: "Unique",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "34",
+        name: "Real_02",
+        image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-34.png-min.png",
+        rating: "Unique",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "35",
+        name: "Real_03",
+        image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-35.png-min.png",
+        rating: "Unique",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "36",
+        name: "Real_04",
+        image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-36.png-min.png",
+        rating: "Unique",
+        price: "0.01 ETH",
+    }, 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "37",
+        name: "legend_01",
+        image: "https://gateway.pinata.cloud/ipfs/QmQMqxSqWynvHg1xbBvvpjiEQfxaNpHKzcn5MCTtccvPYc/New%20Piskel-39.png-min.png",
+        rating: "Legend",
+        price: "0.01 ETH",
+    }, 
+    {
+        // 아이디, 이름, 이미지, 등급, 가격
+        id: "48",
+        name: "legend_02 ",
+        image: "https://gateway.pinata.cloud/ipfs/QmQMqxSqWynvHg1xbBvvpjiEQfxaNpHKzcn5MCTtccvPYc/New%20Piskel-40.png-min.png",
+        rating: "Legend",
         price: "0.01 ETH",
     }, 
     
-   
 ];
+
 
 export default dummy;
