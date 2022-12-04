@@ -25,7 +25,6 @@ const Tetris = ()=> {
     const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
     const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
 
-    console.log('re-render');
 
     const movePlayer = dir => {
         if(!checkCollision(player, stage, {x: dir, y: 0})) {
@@ -68,9 +67,14 @@ const Tetris = ()=> {
             if(keyCode === 40){
                 console.log("interval on")
                 setDropTime(1000 / (level + 1) + 200);
+            }else if(keyCode === 32){
+                console.log("interval")
+                setDropTime(100000);
             }
         }
     }
+
+
 
     const dropPlayer = () => {
         console.log("interval off")
@@ -88,9 +92,10 @@ const Tetris = ()=> {
             dropPlayer();
         } else if(keyCode === 38){ 
             playerRotate(stage, 1)
-        }else if(keyCode === 32){ // space bar -> when I use space bar, the tetrominos attatched to the bottom of the stage
-            ;
+        } else if(keyCode === 32){
+            dropPlayer();
         }
+            
     }
 }
 
