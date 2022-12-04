@@ -5,12 +5,13 @@ import dummydata from './dummy';
 import Pagination from "react-js-pagination";
 import {useState} from "react";
 
-const Itemlist = () => {
+const Itemlist = ({item, loadpage}) => {
     const itemCount = 3;
     let totalItemCount = dummydata.length // 전체 아이템 갯수
     const [page, setPage] = useState(1); // 현제 페이지를 기억해줌
     const offset = (page - 1) * itemCount; // 10 -1 * 10
-
+    // console.log('itemlist : '+loadpage)
+    // console.log(item)
     const handlePageChange = (page) => {
         setPage(page);
     };
@@ -19,16 +20,18 @@ const Itemlist = () => {
         <div className="itemList">
             <div className='itemListItem'>
                 {
-                    dummydata 
+                    item 
                         // .slice(offset, offset + itemCount)  // 페이지로 구현시 주석 해제
                         .map((punk) => (
                             <div key={punk.id}>
-                                {/* <Item nftdata={dummydata}/> */}
+
                                 <Item 
                                     id={punk.id} 
-                                    name={punk.name} 
-                                    image={punk.image} 
+                                    name={punk.item_name} 
+                                    image={punk.image_url} 
                                     price={punk.price}
+                                    rating={punk.rating}
+                                    loadpage={loadpage}
                                     />
                             </div>
                         ))

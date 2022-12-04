@@ -71,7 +71,7 @@ height: 130px;
 
 
 
-@media screen and (max-width: 2900px) {
+@media screen and (max-width: 2110px) {
   .header__navmenu {
       display: none;
   }
