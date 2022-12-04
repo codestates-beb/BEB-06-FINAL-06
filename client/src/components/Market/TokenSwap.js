@@ -4,6 +4,8 @@ import './TokenSwap.css'
 import { useRecoilState } from "recoil";
 import { userState } from '../../recoil/user/atom';
 import { Login } from '../../recoil/user/atom';
+import axios from 'axios';
+
 const TokenSwap = () => {
     const [user, setUser] = useRecoilState(userState)   // recoil user 선언
     const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
@@ -34,9 +36,10 @@ const TokenSwap = () => {
     const onChangeEthAmount = (e) => {
         SetEthAmountChange(e.target.value)
     }
-    // 스테이킹 : JT input 입력값
+    // 스테이킹 : JTT input 입력값
     const onChangeJtSteaking = (e) => {
         setJtSteakingChange(e.target.value)
+        console.log(jtSteakingChange)
     }
 
     // 방향변경 버튼 클릭
@@ -64,6 +67,7 @@ const TokenSwap = () => {
             }
             else{
                 console.log(`jtAmountChange : ${jtAmountChange}`)
+                
             }
             
         }
@@ -71,14 +75,34 @@ const TokenSwap = () => {
 
     // 스테이킹 버튼 클릭시
     const Steaking = () => {
-        if(jtSteakingChange <= 0){
-            alert('0보다 큰 수를 입력해 주세요')
+        if(jtSteakingChange < 100){
+            alert('JTT Toke 토큰은 100개부터 교환 가능 합니다.')
         }
         else if(user.user_token2amount < jtSteakingChange ){
             alert('JTT Token의 수량이 부족합니다.')
         }
         else{
-            console.log(jtSteakingChange)
+            console.log("스테이킹")
+            console.log()
+            // alert('스테이킹 되었습니다.')
+            axios.post("http://localhost:8000/token/steaking", {
+                jttsteaking : jtSteakingChange,
+                },{withCredentials : true})
+                .then(function (response) {
+                    console.log("성공")
+                    console.log(response.data)
+                    setJtSteakingChange(0)  // 값 초기화
+                    setUser({...user,
+                        jttsteaking : user.jttsteaking + parseInt(jtSteakingChange) ,
+                        user_token2amount : user.user_token2amount -parseInt(jtSteakingChange) })
+                    // window.location.reload();
+                    // alert(`${jtSteakingChange}JTT가 스테이킹 되었습니다.`)
+                })
+                .catch((Error) => {
+                    console.log("실패")
+                    console.log(Error)
+                })
+            console.log(user)  
         }
 
         
@@ -86,18 +110,31 @@ const TokenSwap = () => {
 
     // 스테이킹 보상 버튼 클릭시
     const SteakingRewards = () => {
-        
+        // 내가 지금 저장한 JJT Staeking 를 100/1비율로 JT로 변환한다.
+        // JT를 해당수만큼 반환한다. JTT Staeking값을 그만큼 감소한다.
+        axios.get("http://localhost:8000/token/reward",
+        {withCredentials: true})
+        .then((response) =>{
+            console.log(response)
+            setUser({...user,
+                jttsteaking : 0,
+                user_token2amount : user.user_token2amount + (user.jttsteaking/100)  })
+            alert(`스테이킹 보상 JT ${(user.jttsteaking/100)}개가 지급되었습니다.`)
+        })
+        .catch((Error)=>{
+            console.log(Error)
+        })
     }
 
     return (
         <div className='TokenSwap'>
             <div className='TokenSwapPage'>
                 {/* 상단 탭 */}
-                <div className='TokenSwapPage_Tap'>
-                    <div onClick={setPageSwap}>
+                <div className='TokenSwapPage_Tap'  >
+                    <div className={`Tokenswap_Header-button ${(isPage == 'swap') ? 'selectmenu2' : ''}`} onClick={setPageSwap}>
                         토큰 스왑
                     </div>
-                    <div onClick={setPageSteaking}>
+                    <div className={`Tokenswap_Header-button ${(isPage == 'steaking') ? 'selectmenu2' : ''}`} onClick={setPageSteaking}>
                         토큰 스테이킹
                     </div>
                 </div>
@@ -157,11 +194,11 @@ const TokenSwap = () => {
                 <div className='TokenSwapPage_Content' hidden={isPage != 'steaking'} >
                     <div className='TokenSwapPage_Content-container'>
                         <div className='TokenSwapPage_Content-container-title'>
-                            스테이킹 (1:10)
+                            스테이킹 (1:100)
                         </div>
                         <div className='TokenSwapPage_Content-containe-content'>
-                            <input type='number' className='TokenSwapPage_Swap-input' placeholder='스테이킹할 JT 수량을 입력해 주세요.' onChange={onChangeJtSteaking} value={jtSteakingChange}/>
-                            <span>JT </span> <br/>
+                            <input type='number' className='TokenSwapPage_Swap-input' placeholder='스테이킹할 JTT 수량을 입력해 주세요.' onChange={onChangeJtSteaking} value={jtSteakingChange}/>
+                            <span>&nbsp;&nbsp;JTT </span> <br/>
                         </div>
                         <div className='TokenSwapPage_Content-containe-content-btn'>
                             <button className='btn-Shape btn-Size-small' onClick={Steaking}> 스테이킹 </button>
@@ -173,8 +210,8 @@ const TokenSwap = () => {
                         </div>
                         <div className='TokenSwapPage_Content-containe-content'>
                             {/* <input className='TokenSwapPage_Swap-input' placeholder='스테이킹할 JT 수량을 입력해 주세요.' onChange={onChangeEthAmount} value={ethAmountChange}/> */}
-                            <span>스테이킹 JTT : 100 </span> <br/>
-                            <span>보상 JT : 10 </span> <br/>
+                            <span>스테이킹 JTT : {user.jttsteaking} </span> <br/>
+                            <span>보상 JT : {user.jttsteaking / 100} </span> <br/>
                         </div>
                         <div className='TokenSwapPage_Content-containe-content-btn'>
                             <button className='btn-Shape btn-Size-small' onClick={SteakingRewards}> 보상받기 </button>

@@ -5,7 +5,7 @@
     border-radius: 20px;
     overflow: hidden;
     width: 200px;
-    height: 350px;
+    height: 200px;
     margin: 20px;
     cursor: pointer;
 }
@@ -92,43 +92,11 @@
     opacity: 0;
     transition: 0.5s ease;
 }
-
-.useItem-container__btn-size {
-    width: 150px;
-    height: 80px;
+.mypage-Item-container_sapn{
+  color:bisque;
+  font-weight: 700;
+  font-size: 25px;
 }
-
-.useItem-container__btn{
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    border: none;
-    background-size: 300% 100%;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
-    cursor: pointer;
-}
-
-.useItem-container__btn:hover{
-    background-position: 100% 0;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-
-.useItem-container__btn:focus{
-    outline: none;
-}
-
-
-
 .pagination {
     display: flex;
     justify-content: center;

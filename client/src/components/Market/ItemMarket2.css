@@ -1,4 +1,4 @@
-.NFTMarket{
+.ItemTMarket{
     width: 100%;
     height: 100vh;
     background-image: url('../../icon/002.png');
@@ -14,14 +14,15 @@
     text-align: center;   
 }
 
-.NFTMarket_Top{
+.ItemMarket_Top{
     display: flex;
     width: 100%;
     height: 80%;
     /* margin-top: 20px; */
 }
 
-.NFTMarket_Top-random{
+.ItemMarket_Top-random{
+    
     width: 50%;
     height: 100%;
     float: left;
@@ -32,11 +33,12 @@
     
 }
 
-.NFTMarket_Top-random > img{
+.ItemMarket_Top-random > img{
     width: 95%;
     height: 95%;
     border-radius: 25px;
     border: #1e1e1e;
+
 }
 
 .NFTMarket_Top-detailed{
@@ -113,9 +115,9 @@
     font-weight: 700;
 }
 
-.NFTMarket_Top-detailed-btn{
+.ItemMarket_Top-detailed-btn{
     margin-top: 10px;
-    height: 25%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,4 +139,46 @@
     .NFTMarket_Top-detailed{
     width: 100%;
     }
+}
+
+
+.Legend{
+    color: #FF5A00
+}
+.Unique{
+    color: #9601FF
+}
+.Rare{
+    color: #00FF40
+}
+.Nomal{
+    color: #A2ACA8
+}
+
+.Figure{
+    color : #f1f1f1c3
+}
+
+
+
+.ItemMarket_Top-detailed-title-container{
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid #dfdfdf65;
+    /* padding: 10px; */
+    /* float: left; */
+}
+.ItemMarket_Top-detailed-btn{
+    margin-top: 10px;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.itemInfo2{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
 }

@@ -21,30 +21,39 @@ const MyPage = () => {
 
     const [user, setUser] = useRecoilState(userState)   // recoil user 선언
     const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
-    const [myNft, setMyNft] = useState([])
+    const [myNft, setMyNft] = useState([]) // 사용자 NFT 관리
+    const [myItem, setMyItem] = useState([]) // 사용자 ITEM 관리
     // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
 
-    // 아이템/NFT 관련
-    // 오너가 자신인 NFT를 불러온다
-    // 1. DB를 조회해서 owner의 값이 자신의 주소값인 데이터만 가져온다.
-    // 2. 해당 데이터들을 배치한다. -> 아래쪽에 
+        // NFT 받기
         useEffect(() => {
             axios.get("http://localhost:8000/nft/mynft",
-                {withCredentials : true})
-                .then(function (response) {
-                    console.log(response.data)
-                    setMyNft(response.data)
-                    
-                })
-                .catch((Error) => {
-                    console.log(Error)
-                })
-            },[])
-
+            {withCredentials : true})
+            .then(function (response) {
+                console.log(response.data)
+                setMyNft(response.data)        
+            })
+            .catch((Error) => {
+                console.log(Error)
+            })
+        },[])
+        // 아이템 받기
+        useEffect(() => {
+            axios.get("http://localhost:8000/item/myitem",
+            {withCredentials : true})
+            .then(function (response) {
+                console.log(response.data)
+                setMyItem(response.data)        
+            })
+            .catch((Error) => {
+                console.log(Error)
+            })
+        },[])   
     // NFT클릭시 프로필 이미지가 변경된다.
 
     const gamePageLoad = () => {
-        navigator('/GamePage');
+        // navigator('/GamePage');
+        console.log(user)
     }
     
     const test = () => {
@@ -56,19 +65,45 @@ const MyPage = () => {
         <div className='MyPage'>
             <Header/>
             <div className='MyPage_Header'>
-                <span className='header-text'>This is MyPage !</span>
+                <span className='header-text'>마이페이지</span>
             </div>
             <div className='MyPage_Content'>
                 {/* 마이페이지 왼쪽 구성 */}
                 <div className='MyPage_Content-left'>
-                    <img
-                        className='MyPage_Content-setImg'
-                        src={user.user_img}/>
-                    <div className='MyPage_Content-UserInfo'>
-                        <span>닉네임 : {user.user_nickname}</span>
-                        <span>ERC-20 Token1 : {user.user_token1amount}개</span>
-                        <span>ERC-20 Token2 : {user.user_token2amount}개</span>
-                        <span>Score Point : {user.user_score}점</span>
+                    <div className='center'>
+                    <div className='MyPage_Content-img'>
+
+                        <img className='MyPage_Content-userImg' src={user.user_img}/>
+                        <img className='MyPage_Content-itemImg' src={user.item_img}/>
+                    </div>
+                    </div>
+                    <div className='center'>
+                        <div className='MyPage_Content-UserInfo'>
+                            <div className='center'>
+                                <div className='userInfo'>
+                                    <span className='userInfo-title'> {"닉네임 >"} </span>
+                                    <span className='userInfo-content'>{user.user_nickname}</span>
+                                </div>
+                            </div>
+                            <div className='center'>
+                                <div className='userInfo'>
+                                    <span className='userInfo-title'> {"JT >"} </span>
+                                    <span className='userInfo-content'>{user.user_token1amount} 개</span>
+                                </div>
+                            </div>
+                            <div className='center'>
+                                <div className='userInfo'>
+                                    <span className='userInfo-title'> {"JTT >"} </span>
+                                    <span className='userInfo-content'>{user.user_token2amount} 개</span>
+                                </div>
+                            </div>
+                            <div className='center'>
+                                <div className='userInfo'>
+                                    <span className='userInfo-title'> {"최고점수 >"} </span>
+                                    <span className='userInfo-content'>{user.user_score} 점</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <button
                         className='btn-Shape btn-Size-long btn-gamestart'
@@ -77,21 +112,18 @@ const MyPage = () => {
                 </div>
                 {/* 마이페이지 오른쪽 구성 */}
                 <div className='MyPage_Content-right'>
-                    <div className='MyPage_Content-Profile-container'>
-                        <span className='container-title'>
-                            {`Profile (ERC1155)`}
-                            <div>
-                                <ItemList item={itemdummy}/>
+                    <div className='MyPage_Content-Item-container'>
+                        <span className='container-title'> 아이템 </span>
+                            <div className='itembox'>
+                                <ItemList item={myItem} loadpage='MyPage'/>
                             </div>
-                        </span>
+                        
                     </div>
                     <div className='MyPage_Content-NFT-container'>
-                        <span className='container-title'>
-                            {`NFT (ERC721)`}
-                            <div>
+                        <span className='container-title'> 프로필 </span>
+                            <div className='itembox'>
                                 <NFTItemlist nftitem={myNft} loadpage='MyPage' />
                             </div>
-                        </span>
                     </div>
 
                 </div>

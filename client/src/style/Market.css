@@ -5,11 +5,10 @@
 }
 
 .Market_Page{
-
     width: 100%;
     text-align: center;
     justify-content: center;
-    border: 3px solid red;
+
 }
 
 .Market_Header{
@@ -21,13 +20,15 @@
 
 .Market_Header-left{
     display: flex; 
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: flex-end;
     width: 50%;
+    /* border: 1px solid red; */
 }
 
 .Market_Header-title{
     /* margin-left: 10px ; */
-    margin-right: 20px;
+    margin: 0px 20px;
     font-size: 40px;
     font-weight: 800;
     color: aliceblue;
@@ -37,14 +38,18 @@
     background-color: aliceblue;
     width: 150px;
     height: 50px;
-    border-radius: 20px;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     margin: 0px 10px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 800;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-family: 'Gamja Flower', cursive;
 }
 .Market_Header-button:hover{
     background-color: burlywood;
@@ -57,13 +62,17 @@
     justify-content: right;
     align-items: center;
     margin-right: 10px;
+    /* border: 1px solid red; */
 
 }
 .Market_Header-token{
-    background-color: aliceblue;
+    background-color: #1f1f1f;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     margin-right: 10px;
     width: 30%;
-
+    border-bottom: 5px solid rgb(255, 159, 41);
+ 
 
     
 
@@ -71,18 +80,20 @@
 .Market_Header-token-title{
     color: rgb(164, 104, 0);
     font-weight: 800;
+    font-family: 'Gamja Flower', cursive;
 
 }
 
 .Market_Header-token-content{
     font-size: 40px;
     font-weight: 700;
-    color: black;
+    font-family: 'Gamja Flower', cursive;
+    /* color: black; */
 
 }
 
 .Market_Content{
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 @media screen and (max-width: 1600px){
@@ -97,4 +108,9 @@
     .itemInfo{
     width: 100%;
     }
+}
+
+.selectmenu{
+    background-color: rgb(255, 159, 41);
+    border-bottom: 5px solid #ffffff;
 }

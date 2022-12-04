@@ -1,21 +1,22 @@
 .TokenSwap{
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .TokenSwapPage{
-    width: 90%;
+    width: 100%;
     /* height: 90%; */
-    margin-top: 20px;
+
     background-color: #1f1f1f;
 }
 
 .TokenSwapPage_Tap{
+    margin-top: 10px;
     display: flex;
 }
 
-.TokenSwapPage_Tap > div{
+/* .TokenSwapPage_Tap > div{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,13 +33,16 @@
     font-weight: 600;
 
     cursor: pointer;
-}
+    font-family: 'Gamja Flower', cursive;
+} */
 
 .TokenSwapPage_Tap > div:hover{
     background-color: bisque;
 }
 
-
+.TokenSwapPage_Content{
+    height: 100%;
+}
 .TokenSwapPage_Content-container{
     width: 100%;
     height: 25%;
@@ -86,3 +90,28 @@
     margin-left: 30px;
     margin-bottom: 10px;
  }
+
+
+
+.Tokenswap_Header-button{
+    background-color: aliceblue;
+    width: 150px;
+    height: 50px;
+
+    /* border-top-left-radius: 20px;
+    border-top-right-radius: 20px; */
+    border-radius: 25px;
+    margin: 0px 10px;
+    font-size: 25px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Gamja Flower', cursive;
+}
+ .selectmenu2{
+    background-color: rgb(255, 159, 41);
+    border: 2px solid #ffffff;
+}

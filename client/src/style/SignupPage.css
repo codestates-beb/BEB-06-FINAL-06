@@ -15,7 +15,10 @@
 }
 
 .header-text{
-    font-size: 80px;
+    font-size: 100px;
+    font-weight: 700;
+    font-family: 'Gamja Flower', cursive;
+    color: #ffffff;
 }
 
 .SignupPage_Header > button{
