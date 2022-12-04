@@ -16,6 +16,12 @@
     height: 400px;
     overflow: scroll;
 
+
+}
+.nftitemListItem > div{
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
 }
 ::-webkit-scrollbar {
     display: none;

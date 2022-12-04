@@ -28,18 +28,18 @@ connection.query("USE JETRIS_DB", function(err, result){
 })
 
 // users 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists users(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY ,user_address varchar(255), user_nickname varchar(255), user_token1amount float, user_token2amount float, user_score integer, user_img varchar(500))", 
+connection.query("CREATE TABLE if not exists users(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY ,user_address varchar(255), user_nickname varchar(255), user_token1amount float, user_token2amount float, user_score integer, user_img varchar(500), rating varchar(255), item_img varchar(500), jttsteaking int)", 
 function(err, result){
     if(err) return console.log(err);
 })
 
 // items 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists items(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255), image_url varchar(255))", 
+connection.query("CREATE TABLE if not exists items(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,metadata_url varchar(255), image_url varchar(255), item_name varchar(255), price varchar(255), rating varchar(255))", 
 function(err, result){
     if(err) return console.log(err);
 })
 // nfts 라는 테이블 생성 
-connection.query("CREATE TABLE if not exists nfts(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255), image_url varchar(255), nft_name varchar(255), price varchar(255) )", 
+connection.query("CREATE TABLE if not exists nfts(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY, metadata_url varchar(255), image_url varchar(255), nft_name varchar(255), price varchar(255) )", 
 function(err, result){
     if(err) return console.log(err);
 })
@@ -54,8 +54,16 @@ function(err, result){
     if(err) return console.log(err);
 })
 
-
-
+// usernft 라는 테이블 생성 
+connection.query("CREATE TABLE if not exists usernft(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255), image_url varchar(255), nft_name varchar(255), price varchar(255) )", 
+function(err, result){
+    if(err) return console.log(err);
+})
+// useritem 라는 테이블 생성 
+connection.query("CREATE TABLE if not exists useritem(id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,onwer varchar(255), metadata_url varchar(255), image_url varchar(255), item_name varchar(255), price varchar(255), rating varchar(255))", 
+function(err, result){
+    if(err) return console.log(err);
+})
 
 // connection.end();   // DB 종료
 module.exports={connection};

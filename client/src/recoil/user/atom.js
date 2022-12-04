@@ -12,6 +12,9 @@ export const userState = atom({
         user_token2amount: "",
         user_score: "",
         user_img: "",
+        item_img: "",
+        rating:"",
+        jttsteaking:"",
     },
     effects_UNSTABLE : [persistAtom]
 });

@@ -99,7 +99,7 @@ const SignupPage = () => {
                     disabled={!(account && nickname)}>
                     회원가입
                 </button>
-                <button onClick={test}>테스트</button>
+                {/* <button onClick={test}>테스트</button> */}
             </div>
         </div>
     )

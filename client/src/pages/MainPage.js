@@ -60,6 +60,9 @@ const MainPage = () => {
                 user_token2amount: response.data.user_token2amount,
                 user_score: response.data.user_score,
                 user_img: response.data.user_img,
+                item_img: response.data.item_img,
+                rating: response.data.rating,
+                jttsteaking: response.data.jttsteaking,
             })
             // navigator('/mypage')
         })
@@ -167,8 +170,8 @@ const MainPage = () => {
                 <img src={logo} className='Logo' alt='logo'/>
            </div>
                 <div className='MainPage-btn-Container'>
-                    <span>{account}</span>
-                   {isLogin ? (<> <span> 로그인 상태</span></>):<span> 로그아웃 상태</span>}
+                    {/* <span>{account}</span> */}
+                   {/* {isLogin ? (<> <span> 로그인 상태</span></>):<span> 로그아웃 상태</span>} */}
                     {isLogin ? 
                     <>
                         <button className='btn-Shape btn-Size-default' onClick={GamePageLoad}>게임 시작</button>
@@ -182,7 +185,7 @@ const MainPage = () => {
                     </>}            
                     {/* <button className='btn-Shape btn-Size-default' onClick={accessToken}>accessToken</button>
                     <button className='btn-Shape btn-Size-default' onClick={refreshToken}>refreshToken</button> */}
-                    <button className='btn-Shape btn-Size-default' onClick={test}>테스트 버튼</button> 
+                    {/* <button className='btn-Shape btn-Size-default' onClick={test}>테스트 버튼</button>  */}
                 </div>
      
         </div>

@@ -9,7 +9,6 @@ const NFTItem = ({id, name, image, price, loadpage}) => {
     const [user, setUser] = useRecoilState(userState)   // recoil user 선언
     // 판매하기 ?
     const Sell = () => {
-        console.log(loadpage)
         console.log(name)
     }
     // 장착하기
@@ -25,6 +24,7 @@ const NFTItem = ({id, name, image, price, loadpage}) => {
                 // window.location.reload();
                 setUser({...user,
                     user_img : image })
+                    alert("프로필 이미지가 변경되었습니다.")
             })
             .catch((Error) => {
                 console.log("실패")
@@ -54,13 +54,11 @@ const NFTItem = ({id, name, image, price, loadpage}) => {
                 {/* <Lock fontSize='large'></Lock> */}
                 {loadpage === 'MyPage' ? 
                 <div>
-                    <button className='sell-container__btn sell-container__btn-size' onClick={Mounting}>장착하기</button> 
-                    <button className='sell-container__btn sell-container__btn-size' onClick={Sell}>판매하기</button> 
+                    <span className='mypage-Item-container_sapn'>{name} </span>
+                    <button className='mypage-Item-container__btn mypage-Item-container__btn-size' onClick={Mounting}>장착하기</button>
+                    {/* <button className='mypage-Item-container__btn mypage-Item-container__btn-size' onClick={Mounting}>판매하기</button> */}
                 </div>
-                :
-                
-                    <div className='nftname'>{name}</div> 
-                
+                :   <span className='mypage-Item-container_sapn'>{name} </span>
                 }
                 </div>
             </div>

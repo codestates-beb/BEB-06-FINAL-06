@@ -264,7 +264,7 @@ const dummy = [
     {
         // 아이디, 이름, 이미지, 등급, 가격
         id: "33",
-        name: "Real_01",
+        name: "Unique_01",
         image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-33.png-min.png",
         rating: "Unique",
         price: "0.01 ETH",
@@ -272,7 +272,7 @@ const dummy = [
     {
         // 아이디, 이름, 이미지, 등급, 가격
         id: "34",
-        name: "Real_02",
+        name: "Unique_02",
         image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-34.png-min.png",
         rating: "Unique",
         price: "0.01 ETH",
@@ -280,7 +280,7 @@ const dummy = [
     {
         // 아이디, 이름, 이미지, 등급, 가격
         id: "35",
-        name: "Real_03",
+        name: "Unique_03",
         image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-35.png-min.png",
         rating: "Unique",
         price: "0.01 ETH",
@@ -288,7 +288,7 @@ const dummy = [
     {
         // 아이디, 이름, 이미지, 등급, 가격
         id: "36",
-        name: "Real_04",
+        name: "Unique_04",
         image: "https://gateway.pinata.cloud/ipfs/QmXbWM24CneWs2Z5ueycLfwyd2iHrwa8GReNAUpCR6MTzt/New%20Piskel-36.png-min.png",
         rating: "Unique",
         price: "0.01 ETH",
@@ -304,7 +304,7 @@ const dummy = [
     }, 
     {
         // 아이디, 이름, 이미지, 등급, 가격
-        id: "48",
+        id: "38",
         name: "legend_02 ",
         image: "https://gateway.pinata.cloud/ipfs/QmQMqxSqWynvHg1xbBvvpjiEQfxaNpHKzcn5MCTtccvPYc/New%20Piskel-40.png-min.png",
         rating: "Legend",
