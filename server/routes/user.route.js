@@ -39,14 +39,16 @@ router.post('/signup', function (req, res) {
             } else {
                 connection.query(
                     'INSERT INTO users(user_address, user_nickname, user_token1amount, user_token2a' +
-                            'mount, user_score, user_img) VALUES(?,?,?,?,?,?)',
+                            'mount, user_score, user_img, jttsteaking) VALUES(?,?,?,?,?,?,0)',
                     [
                         address,
                         nickname,
                         token1amount,
                         token2amount,
                         score,
-                        profileimg
+                        profileimg,
+
+
                     ],
                     function (err, result) {
                         if (err) 
@@ -77,8 +79,9 @@ router.post('/login', function (req, res) {
             if (result.length) {
                 //로그인 성공 시 해당 주소값을 가진 유저의 데이터를 불러옴
                 connection.query(
-                    `SELECT id, user_address, user_nickname, user_token1amount, user_token2amount, user_score, user_img FROM users WHERE user_address = "${user_address}"`,
+                    `SELECT id, user_address, user_nickname, user_token1amount, user_token2amount, user_score, user_img, item_img, rating, jttsteaking FROM users WHERE user_address = "${user_address}"`,
                     function (err, result) {
+                        console.log("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-")
                         console.log(result)
 
                         const payload = {
@@ -88,7 +91,10 @@ router.post('/login', function (req, res) {
                             user_token1amount: result[0].user_token1amount,
                             user_token2amount: result[0].user_token2amount,
                             user_score: result[0].user_score,
-                            user_img: result[0].user_img
+                            user_img: result[0].user_img,
+                            item_img: result[0].item_img,
+                            rating: result[0].rating,
+                            jttsteaking: result[0].jttsteaking
                         }
 
                         // access Token, refresh Token 발급

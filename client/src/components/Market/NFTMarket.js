@@ -8,18 +8,53 @@ import Box from '../../icon/Box.png'
 import { useRecoilState } from "recoil";
 import { userState } from '../../recoil/user/atom';
 import { Login } from '../../recoil/user/atom';
-import nftdummy from '../ERC721-item/nftdummy';
+// import nftdummy from '../ERC721-item/nftdummy';
 
 
 const NFTMarket = () => {
 // 사용자 정보 불러오기
 // const {user, setUser, isLogin, setIsLogin} = useContext(UserContext);
+const NFTPRICE = 100;
 const [user, setUser] = useRecoilState(userState)   // recoil user 선언
 const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
+const [nfts, setNfts] = useState([])
+
+// NFT 초기화
+useEffect(()=> {
+  axios.get("http://localhost:8000/nft/findall",
+  {withCredentials: true})
+  .then((response) =>{
+    setNfts(response.data)
+    //  console.log(response.data)
+  })
+  .catch((Error)=>{
+      console.log(Error)
+  })
+}, [])
 
 
 const NFTminting = () => {
-  alert("민팅 되었습니다. 마이페이지에서 확인하세요.")
+  // const rand = Math.floor(Math.random() * 21);
+  // console.log(rand)
+  
+  if(user.user_token1amount < NFTPRICE){
+    alert("토큰이 부족합니다. 토큰 개수를 확인하세요.")  
+  }else{
+     axios.get("http://localhost:8000/nft/buy",
+     {withCredentials : true})
+     .then(function (response) {
+         console.log(response.data)
+         setUser({...user,
+          user_token1amount : user.user_token1amount-NFTPRICE })
+         alert("민팅 되었습니다. 마이페이지에서 확인하세요.")
+
+         window.location.reload();
+         
+     })
+     .catch((Error) => {
+         console.log(Error)
+     })
+  }
 }
 // NFT 데이터 불러오기
  return(
@@ -75,7 +110,7 @@ const NFTminting = () => {
     <div>
 
     </div>
-    <NFTItemlist nftitem={nftdummy} loadpage={'Market'}/>
+    <NFTItemlist nftitem={nfts} loadpage='Market'/>
   </div>
   </div>
  )

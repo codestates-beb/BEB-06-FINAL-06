@@ -11,7 +11,7 @@ const NFTItemlist = ({nftitem, loadpage}) => {
     let totalItemCount = dummydata.length // 전체 아이템 갯수
     const [page, setPage] = useState(1); // 현제 페이지를 기억해줌
     const offset = (page - 1) * itemCount; // 10 -1 * 10
-
+    // console.log(nftitem)
     const handlePageChange = (page) => {
         setPage(page);
     };
