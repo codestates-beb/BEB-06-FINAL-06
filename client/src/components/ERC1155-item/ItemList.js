@@ -1,13 +1,11 @@
 import React from 'react'
 import './ItemList.css'
 import Item from './Item'
-import dummydata from './dummy';
 import Pagination from "react-js-pagination";
 import {useState} from "react";
 
 const Itemlist = ({item, loadpage}) => {
     const itemCount = 3;
-    let totalItemCount = dummydata.length // 전체 아이템 갯수
     const [page, setPage] = useState(1); // 현제 페이지를 기억해줌
     const offset = (page - 1) * itemCount; // 10 -1 * 10
     // console.log('itemlist : '+loadpage)

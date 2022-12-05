@@ -8,7 +8,6 @@ import Box from '../../icon/Box.png'
 import { useRecoilState } from "recoil";
 import { userState } from '../../recoil/user/atom';
 import { Login } from '../../recoil/user/atom';
-// import nftdummy from '../ERC721-item/nftdummy';
 
 
 const NFTMarket = () => {
@@ -95,7 +94,7 @@ const NFTminting = () => {
               </div>
               <div className='price'>
                 <img src={simbol} alt='simbol'/>
-                <span> 100 JTT </span>
+                <span> 100 JT </span>
               </div>
             </div>
             {/* 버튼 */}
