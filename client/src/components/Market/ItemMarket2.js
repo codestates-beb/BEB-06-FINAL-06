@@ -1,14 +1,11 @@
 import React,{useContext, useState, useEffect} from 'react'
-// import Header from '../components/Header'
 import './ItemMarket2.css'
 import axios from 'axios';
 import simbol from '../../icon/simbol.png'
-// import NFTItemlist from '../ERC721-item/NFTItemList'
 import Box from '../../icon/Box.png'
 import { useRecoilState } from "recoil";
 import { userState } from '../../recoil/user/atom';
 import { Login } from '../../recoil/user/atom';
-// import nftdummy from '../ERC721-item/nftdummy';
 import Itemlist from '../ERC1155-item/ItemList'
 
 const ItemMarket2 = () => {
@@ -121,7 +118,7 @@ const [items, setItems] = useState([])
               </div>
               <div className='price'>
                 <img src={simbol} alt='simbol'/>
-                <span> 10 JTT </span>
+                <span> 10 JT </span>
               </div>
             </div>
             {/* 버튼 */}

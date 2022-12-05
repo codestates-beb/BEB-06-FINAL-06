@@ -5,8 +5,6 @@ import NFTItemlist from '../components/ERC721-item/NFTItemList'
 import Header from '../components/Header'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import itemdummy from '../components/ERC1155-item/dummy';   // 나중에 디비로 변경
-import nftdummy from '../components/ERC721-item/nftdummy';   // 나중에 디비로 변경
 import { CompareArrowsOutlined } from '@material-ui/icons'
 // import {UserContext} from '../User/UserContext'; // 선언
 import { useRecoilState } from "recoil";
@@ -108,7 +106,7 @@ const MyPage = () => {
                     <button
                         className='btn-Shape btn-Size-long btn-gamestart'
                         onClick={gamePageLoad}>게임 시작</button>
-                    {/* <button className='btn-Shape btn-Size-long btn-gamestart' onClick={test}>test</button> */}
+                  
                 </div>
                 {/* 마이페이지 오른쪽 구성 */}
                 <div className='MyPage_Content-right'>

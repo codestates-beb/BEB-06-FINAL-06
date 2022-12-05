@@ -6,7 +6,6 @@ import Itemlist from '../ERC1155-item/ItemList'
 import Box from '../../icon/Box.png'
 import axios from 'axios'
 // import {UserContext} from '../User/UserContext'
-import dummydata from '../ERC1155-item/dummy';
 import {useRecoilState} from "recoil";
 import {userState} from '../../recoil/user/atom';
 import {Login} from '../../recoil/user/atom';
