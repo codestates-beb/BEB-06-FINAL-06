@@ -98,6 +98,6 @@ $ npm start
 # 👨‍👩‍👦‍👦 Members
 ||Role|Github|
 |---|:---:|:---:|
-|🧑‍💻 김원용(팀장)|Back-end,Front-end|https://github.com/smkang2|
+|🧑‍💻 김원용(팀장)|Back-end,Front-end|https://github.com/wonyongkoon|
 |🧑‍💻 안요한|Contract|https://github.com/|
 |🧑‍💻 한은진|Front-end|https://github.com/eunjh3|
