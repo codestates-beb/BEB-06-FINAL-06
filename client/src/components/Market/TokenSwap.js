@@ -115,10 +115,11 @@ const TokenSwap = () => {
         axios.get("http://localhost:8000/token/reward",
         {withCredentials: true})
         .then((response) =>{
+            console.log(user.user_token1amount)
             console.log(response)
             setUser({...user,
                 jttsteaking : 0,
-                user_token2amount : user.user_token2amount + (user.jttsteaking/100)  })
+                user_token1amount : user.user_token1amount + (user.jttsteaking/100)  })
             alert(`스테이킹 보상 JT ${(user.jttsteaking/100)}개가 지급되었습니다.`)
         })
         .catch((Error)=>{
