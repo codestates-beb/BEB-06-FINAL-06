@@ -24,3 +24,8 @@ export const Login = atom({
     default : false,
     effects_UNSTABLE : [persistAtom]
 });
+
+export const Game = atom({
+    key : 'isGame',
+    default : false,
+});

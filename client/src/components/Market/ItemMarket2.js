@@ -99,23 +99,19 @@ const [items, setItems] = useState([])
                             </div>
                             <div className='NFTMarket_Top-detailed-title-content2'>
                                 <span className='Legend'>Legend</span>
-                                : 52.63%
-                                <span className='Figure'>(20/38)</span>
+                                : 5.26%<span className='Figure'>(2/38)</span>
                                 <br></br>
                                 <span className='Unique'>Unique
                                 </span>
-                                : 31.58%
-                                <span className='Figure'>(12/38)</span>
+                                : 10.53%<span className='Figure'>(4/38)</span>
                                 <br></br>
                                 <span className='Rare'>Rare
                                 </span>
-                                : 10.53%
-                                <span className='Figure'>(4/38)</span>
+                                : 31.58%<span className='Figure'>(12/38)</span>
                                 <br></br>
                                 <span className='Nomal'>Nomal
                                 </span>
-                                : 5.26%
-                                <span className='Figure'>(2/38)</span>
+                                : 52.63%<span className='Figure'>(20/38)</span>
                             </div>
                         </div>
             {/* 가격 */}
