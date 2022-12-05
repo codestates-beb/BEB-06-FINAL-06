@@ -55,7 +55,7 @@ const SignupPage = () => {
             .then(function (response) {
                 console.log("성공")
                 console.log(response.data)
-                navigator('/MyPage')
+                navigator('/')
             })
             .catch((Error) => {
                 console.log("실패")

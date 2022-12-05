@@ -52,7 +52,7 @@ const MyPage = () => {
     // NFT클릭시 프로필 이미지가 변경된다.
 
     const gamePageLoad = () => {
-        // navigator('/GamePage');
+        navigator('/GamePage');
         console.log(user)
     }
     

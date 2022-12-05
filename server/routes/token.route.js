@@ -46,13 +46,14 @@ router.get('/reward' , function (req, res) {
         const data = jwt.verify(token, process.env.ACCESS_SECRET); // Jwt 토큰을 암호화 해독함
         const user_address = data.user_address; // 쿠키에 있는 유저 주소
         const user_jttsteaking = data.jttsteaking;     // 현재 저장된 유저 JTT 스테이킹 수
-        const user_token2amount = data.user_token2amount; // 현재 유저의 JTT 갯수
+        // const user_token2amount = data.user_token2amount; // 현재 유저의 JTT 갯수
+        const user_token1amount = data.user_token1amount; // 현재 유저의 JT 갯수
         // const nfts = []
         // 유저의 jttstaeking 값을 0으로 만든다.
         connection.query(`UPDATE users SET jttsteaking ="0" WHERE user_address = "${user_address}"`,
         function(err,result){
             // 유저의 JT값을 jttsteaking / 100 만큼 추가한다.
-            connection.query(`UPDATE users SET user_token2amount ="${user_token2amount + (user_jttsteaking/100)}" WHERE user_address = "${user_address}"`,    
+            connection.query(`UPDATE users SET user_token1amount ="${user_token1amount + (user_jttsteaking/100)}" WHERE user_address = "${user_address}"`,    
             function(err,result){
                 res.status(200).send(result) 
                 }
