@@ -3,7 +3,6 @@ import './Header.css'
 import {Link} from 'react-router-dom';
 import logo from '../icon/logo.png'
 import {useWeb3React} from '@web3-react/core';
-import { UserContext } from '../User/UserContext';
 import axios from 'axios';
 import { useRecoilState } from "recoil";
 import { userState } from '../recoil/user/atom';

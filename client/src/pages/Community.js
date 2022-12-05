@@ -24,30 +24,6 @@ const Community = () => {
     if(isLogin === false){
         navigator('/')
     }
-
-    // // 랜더링 시 유저 상태 유지하기 위해 서버와 통신
-    // useEffect(() => {
-    //     axios.get("http://localhost:8000/user/success",
-    //         {withCredentials : true})
-    //         .then(function (response) {
-    //             console.log("Community success")
-    //             // console.log(response.data[0])
-    //             setIsLogin(true)    // 로그인 상태 유지
-    //             // 유저정보를 갱신함
-    //             setUser({
-    //                 id: response.data.id,
-    //                 user_address: response.data.user_address,
-    //                 user_nickname: response.data.user_nickname,
-    //                 user_token1amount: response.data.user_token1amount,
-    //                 user_token2amount: response.data.user_token2amount,
-    //                 user_score: response.data.user_score,
-    //                 user_img: response.data.user_img,
-    //             })
-    //         })
-    //         .catch((Error) => {
-    //             console.log(Error)
-    //         })
-    //     },[])
         return (
             <div className="CommunityPage">
             <Header/>

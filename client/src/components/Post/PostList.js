@@ -3,7 +3,6 @@ import React, {useState, useEffect, useContext} from 'react'
 import './PostList.css'
 import Post  from './Post'
 import axios from 'axios';
-import { UserContext } from '../../User/UserContext';
 import { BugReportTwoTone } from '@material-ui/icons';
 import { useRecoilState } from "recoil";
 

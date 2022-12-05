@@ -9,22 +9,11 @@ import Community from './pages/Community';
 import Market from './pages/Market';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { useState } from 'react';
-import { UserContext } from './User/UserContext';
+
 import {RecoilRoot, atom, selector, useRecoilState, useRecoilValue, } from 'recoil';
 
 function App() {
-    // const [user, setUser] = useState({
-    //     id: "",
-    //     user_address: "",
-    //     user_nickname: "",
-    //     user_token1amount: "",
-    //     user_token2amount: "",
-    //     user_score: "",
-    //     user_img: "",
-    // });
-    // const [isLogin, setIsLogin] = useState(false);
-    // const [posts, setPosts] = useState([]);
-   
+
 
     return (
         <div className="App">
