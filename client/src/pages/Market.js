@@ -14,10 +14,7 @@ const Market = () => {
     const [isLogin, setIsLogin] = useRecoilState(Login) // recoil user login 선언
     const [isPage, setIsPage] = useState("item")
 
-    // const setPageItem =() =>{
-    //     setIsPage('item')
-    //     console.log(isPage)
-    // }
+
     const setPageNft = () => {
         setIsPage('nft')
         console.log(isPage)
