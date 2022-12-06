@@ -99,5 +99,5 @@ $ npm start
 ||Role|Github|
 |---|:---:|:---:|
 |🧑‍💻 김원용(팀장)|Back-end,Front-end|https://github.com/wonyongkoon|
-|🧑‍💻 안요한|Contract|https://github.com/|
+|🧑‍💻 안요한|Contract|https://github.com/Jwanani|
 |🧑‍💻 한은진|Front-end|https://github.com/eunjh3|
